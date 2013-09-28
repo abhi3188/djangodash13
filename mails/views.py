@@ -22,4 +22,4 @@ def index(request):
     return render(request,"index.html",{'form':form})
 
 def home(request):
-    return render(request, "base.html")
+    return render(request, "sign_in.html")
