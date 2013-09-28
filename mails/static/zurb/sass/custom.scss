@@ -19,6 +19,7 @@ $zurb_green: #5da423;
 $facebook_blue : #3b5998;
 $twitter_blue: #4099ff;
 $rss_orange: #ff6600;
+$google_red: #d54937;
 
 // MAKING FOOTER STICK TO THE BOTTOM
 
@@ -106,6 +107,14 @@ ul.errorlist > li {
   }
 }
 
+.gmail_button {
+    background: $google_red;
+    border-color: darken($google_red,10%);
+    &:hover {
+        background: darken($google_red, 10%);
+    }
+}
+
 textarea {
   min-height: 150px;
 }
@@ -132,4 +141,8 @@ textarea {
   border-right: 4px solid transparent;
   border-top: 4px solid $dark_gray_3;
   content: ""
+}
+
+.landing_page {
+    padding-top: 5%;
 }

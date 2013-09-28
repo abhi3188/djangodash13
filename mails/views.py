@@ -12,6 +12,13 @@ from oauth2client import xsrfutil
 from .forms import SendMailForm
 from .models import Credential
 
+from django.template import RequestContext
+
+def sign_in(request):
+    return render(request, "sign_in.html", RequestContext(request))
+
+def inbox(request):
+    return render(request, "inbox.html", RequestContext(request))
 
 def index(request):
     if request.method == 'POST':

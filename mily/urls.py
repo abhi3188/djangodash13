@@ -23,5 +23,4 @@ urlpatterns = patterns('',
     url(r'^mails/', include('mails.urls', namespace="mails")),
     url(r'^documents/', include('documents.urls', namespace="documents")),
     url(r'^contacts/', include('contacts.urls', namespace="contacts")),
-    url(r'^$', index, name="home"),
 )
