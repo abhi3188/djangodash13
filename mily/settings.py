@@ -9,6 +9,13 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = 'imlyfood'
+EMAIL_HOST_PASSWORD = 'imlyfood@13'
+EMAIL_PORT = 587
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 MANAGERS = ADMINS
 
 DATABASES = {
