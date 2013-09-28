@@ -1,7 +1,8 @@
 from django.conf.urls import patterns, include, url
-
-# Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+
+from mails.views import index
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -13,7 +14,13 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
+<<<<<<< HEAD
     url(r'^accounts/',include('allauth.urls')),
+=======
+    url(r'^$', index, name="home"),
+>>>>>>> c7730245e220547facf9fee7325c41ae4304435e
     url(r'^admin/', include(admin.site.urls)),
-    url(r'', include('milymail.urls')),
+    url(r'^mails/', include('mails.urls', namespace="mails")),
+    url(r'^documents/', include('documents.urls', namespace="documents")),
+    url(r'^contacts/', include('contacts.urls', namespace="contacts")),
 )

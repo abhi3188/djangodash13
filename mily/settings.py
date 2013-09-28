@@ -147,11 +147,12 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'south',
-    'milymail',
+    'south',    
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'mails',
+
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'

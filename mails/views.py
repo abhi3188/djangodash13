@@ -2,8 +2,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render_to_response
-from milymail.forms import SendMailForm
 from django.core.mail import EmailMessage
+
+from .forms import SendMailForm
 
 def index(request):
     if request.method == 'POST':
