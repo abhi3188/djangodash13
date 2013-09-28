@@ -4,5 +4,10 @@
 
 <a href=""> Connect </a>
 
-
+<h2>Contacts Discovered Till Now</h2>
+<ul>
+{% for contact in contacts %}
+    <li><ul>{% for email in contact.email %}<li>{{ email.address }}</li>{% endfor %}</ul></li>
+{% endfor %}
+</ul>
 {% endblock main_content %}

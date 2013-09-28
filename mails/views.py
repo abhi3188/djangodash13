@@ -1,3 +1,5 @@
+import logging
+
 # Create your views here.
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
@@ -6,12 +8,13 @@ from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 
-from oauth2client.django_orm import Storage
+
 from oauth2client import xsrfutil
 
 from .forms import SendMailForm
 from .models import Credential
-
+from contacts.models import get_contacts_for_user
+import utils
 
 def index(request):
     if request.method == 'POST':
@@ -30,19 +33,18 @@ def index(request):
 
 @login_required
 def home(request):
-    storage = Storage(Credential, 'id', request.user.id, 'credential')
-    credential = storage.get()
+    credential = utils.get_user_credential(request.user)
     if credential is None or credential.invalid == True:
-        settings.FLOW.params['state'] = xsrfutil.generate_token(settings.SECRET_KEY,
-                                                       request.user)
+        settings.FLOW.params['state'] = xsrfutil.generate_token(settings.SECRET_KEY, request.user)
         authorize_url = settings.FLOW.step1_get_authorize_url()
         return HttpResponseRedirect(authorize_url)
-    return render(request, "home.html")
+    else:
+        contacts = get_contacts_for_user(request.user)
+        return render(request, "home.html", locals())
 
 @login_required
 def auth_return(request):
-    if not xsrfutil.validate_token(settings.SECRET_KEY, request.REQUEST['state'],
-                                   request.user):
+    if not xsrfutil.validate_token(settings.SECRET_KEY, request.REQUEST['state'], request.user):
         return  HttpResponseBadRequest()
     credential = settings.FLOW.step2_exchange(request.REQUEST)
     storage = Storage(Credential, 'id', request.user, 'credential')
