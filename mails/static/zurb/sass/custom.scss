@@ -235,7 +235,7 @@ textarea {
 }
 
 .row .active{
-  background: $white;
+  background: $mily_green;
   cursor: default;
   @include custom_inset_box_shadow(25px, 0px, 0px, -5px, $mily_green);
   

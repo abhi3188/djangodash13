@@ -8171,7 +8171,7 @@ textarea {
 
 /* line 237, ../sass/custom.scss */
 .row .active {
-  background: white;
+  background: #27ad90;
   cursor: default;
   -moz-box-shadow: inset 25px 0px 0px -5px #27ad90;
   -webkit-box-shadow: inset 25px 0px 0px -5px #27ad90;
