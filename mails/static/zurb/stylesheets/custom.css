@@ -1,82 +1,254 @@
-/*
-Syntax error: Undefined mixin 'custom_box_shadow'.
-        on line 87 of /Users/abhishek/Desktop/Python/Django/mily/milymail/static/zurb/sass/custom.scss, in `custom_box_shadow'
-        from line 87 of /Users/abhishek/Desktop/Python/Django/mily/milymail/static/zurb/sass/custom.scss
+/* line 50, ../sass/custom.scss */
+html, body {
+  height: 100%;
+}
 
-Backtrace:
-/Users/abhishek/Desktop/Python/Django/mily/milymail/static/zurb/sass/custom.scss:87:in `custom_box_shadow'
-/Users/abhishek/Desktop/Python/Django/mily/milymail/static/zurb/sass/custom.scss:87
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/perform.rb:253:in `visit_mixin'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/base.rb:53:in `map'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/perform.rb:109:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/perform.rb:121:in `with_environment'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/perform.rb:108:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/perform.rb:320:in `visit_rule'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/base.rb:53:in `map'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/perform.rb:109:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/perform.rb:121:in `with_environment'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/perform.rb:108:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/perform.rb:128:in `visit_root'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/perform.rb:7:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/visitors/perform.rb:7:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/tree/root_node.rb:20:in `render'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/engine.rb:315:in `_render'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/../sass/engine.rb:262:in `render'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:140:in `compile'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:139:in `compile'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/logger.rb:45:in `red'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:138:in `compile'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:118:in `compile_if_required'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:103:in `run'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `each'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `run'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:100:in `run'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:147:in `recompile'
-/Library/Ruby/Site/1.8/rubygems/core_ext/kernel_require.rb:45:in `to_proc'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:73:in `call'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:73:in `run_callback'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:55:in `callback_action'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:35:in `update'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:39:in `modified'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:37:in `each'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:37:in `modified'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:18:in `refresh'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:17:in `run'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:17:in `each'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:17:in `run'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:15:in `loop'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:15:in `run'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/monitor.rb:26:in `run'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm.rb:70:in `monitor'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:87:in `perform'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/commands/base.rb:18:in `execute'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/commands/project_base.rb:19:in `execute'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:15:in `run!'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/bin/compass:30
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/bin/compass:44:in `call'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/bin/compass:44
-/usr/bin/compass:23:in `load'
-/usr/bin/compass:23
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Undefined mixin 'custom_box_shadow'.\A         on line 87 of /Users/abhishek/Desktop/Python/Django/mily/milymail/static/zurb/sass/custom.scss, in `custom_box_shadow'\A         from line 87 of /Users/abhishek/Desktop/Python/Django/mily/milymail/static/zurb/sass/custom.scss"; }
+/* line 55, ../sass/custom.scss */
+#wrap {
+  min-height: 100%;
+  margin: 0 auto -150px;
+}
+
+/* line 61, ../sass/custom.scss */
+.footer, .push {
+  clear: both;
+  height: 150px;
+}
+
+/* line 68, ../sass/custom.scss */
+::selection {
+  background: #f16a3d;
+  color: #fff;
+  text-shadow: none;
+}
+
+/* line 74, ../sass/custom.scss */
+.row_wide {
+  max-width: 100%;
+}
+
+/* line 78, ../sass/custom.scss */
+.row_wide2 {
+  max-width: 80em;
+}
+
+/* line 82, ../sass/custom.scss */
+.row_wide_with_padding {
+  max-width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+/* line 88, ../sass/custom.scss */
+.row_wide_custom {
+  max-width: 1280px;
+}
+
+/* line 92, ../sass/custom.scss */
+.text-center {
+  text-align: center;
+}
+
+/* line 96, ../sass/custom.scss */
+.white {
+  color: white;
+}
+
+/* line 100, ../sass/custom.scss */
+.green {
+  color: #27ad90;
+}
+
+/* line 104, ../sass/custom.scss */
+.column_no_padding {
+  padding-left: 0;
+  padding-right: 0;
+  background: #333333;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: auto;
+}
+
+/* line 116, ../sass/custom.scss */
+.column_left_border {
+  border-left: 1px solid #e5e5e5;
+}
+
+/* line 121, ../sass/custom.scss */
+ul.errorlist > li {
+  list-style: none;
+  color: #ff7752;
+}
+
+/* line 126, ../sass/custom.scss */
+.button {
+  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+}
+
+/* line 132, ../sass/custom.scss */
+.custom_button {
+  background: #27ad90;
+  border-color: #1e836d;
+}
+/* line 135, ../sass/custom.scss */
+.custom_button:hover {
+  background: #1e836d;
+}
+
+/* line 140, ../sass/custom.scss */
+.gmail_button {
+  background: #d54937;
+  border-color: #b33626;
+}
+/* line 143, ../sass/custom.scss */
+.gmail_button:hover {
+  background: #b33626;
+}
+
+/* line 148, ../sass/custom.scss */
+textarea {
+  min-height: 150px;
+}
+
+/* line 152, ../sass/custom.scss */
+.muted {
+  color: #999999;
+}
+
+/* line 156, ../sass/custom.scss */
+.font_13 {
+  font-size: emCalc(13);
+  padding-top: 1em;
+}
+
+/* line 161, ../sass/custom.scss */
+.clearfix {
+  clear: both;
+}
+
+/* line 165, ../sass/custom.scss */
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: top;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #333333;
+  content: "";
+}
+
+/* line 176, ../sass/custom.scss */
+.landing_page {
+  padding-top: 5%;
+}
+
+/* line 182, ../sass/custom.scss */
+.main_content .people_list {
+  position: fixed;
+  top: 0;
+  background: red;
+}
+/* line 188, ../sass/custom.scss */
+.main_content .content_pane {
+  background: green;
+}
+
+/* line 197, ../sass/custom.scss */
+.row .mail_side_nav_link {
+  border-bottom: 1px solid #e5e5e5;
+  margin-right: 0;
+  padding-left: 5%;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  cursor: pointer;
+}
+/* line 207, ../sass/custom.scss */
+.row .mail_side_nav_link ul.inline-list {
+  margin-bottom: 0;
+}
+/* line 212, ../sass/custom.scss */
+.row .mail_side_nav_link ul.link_list li.link_text {
+  color: white;
+  text-align: center;
+  font-weight: 200;
+  font-size: emCalc(14);
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+/* line 221, ../sass/custom.scss */
+.row .mail_side_nav_link ul.no-bullet {
+  margin-left: 0.5em;
+}
+/* line 225, ../sass/custom.scss */
+.row .mail_side_nav_link h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+/* line 229, ../sass/custom.scss */
+.row .mail_side_nav_link h1 i {
+  color: black;
+}
+/* line 234, ../sass/custom.scss */
+.row .mail_side_nav_link small {
+  font-size: 65%;
+  color: #999999;
+  text-transform: uppercase;
+}
+/* line 240, ../sass/custom.scss */
+.row .mail_side_nav_link:hover {
+  background: #222222;
+  -moz-box-shadow: inset 25px 0px 0px -5px #27ad90;
+  -webkit-box-shadow: inset 25px 0px 0px -5px #27ad90;
+  box-shadow: inset 25px 0px 0px -5px #27ad90;
+}
+/* line 243, ../sass/custom.scss */
+.row .mail_side_nav_link:hover i {
+  color: #27ad90;
+}
+
+/* line 249, ../sass/custom.scss */
+.row .active {
+  background: white;
+  cursor: default;
+  -moz-box-shadow: inset 25px 0px 0px -5px #27ad90;
+  -webkit-box-shadow: inset 25px 0px 0px -5px #27ad90;
+  box-shadow: inset 25px 0px 0px -5px #27ad90;
+}
+/* line 257, ../sass/custom.scss */
+.row .active ul.link_list li.link_text {
+  color: black;
+}
+/* line 262, ../sass/custom.scss */
+.row .active h1 {
+  color: #27ad90;
+}
+/* line 264, ../sass/custom.scss */
+.row .active h1 i {
+  color: #27ad90;
+}
+/* line 269, ../sass/custom.scss */
+.row .active small {
+  color: #333333;
+}
+/* line 273, ../sass/custom.scss */
+.row .active:hover {
+  background: white;
+  color: black;
+}
+/* line 277, ../sass/custom.scss */
+.row .active:hover i {
+  color: #27ad90;
+}
+/* line 281, ../sass/custom.scss */
+.row .active:hover small {
+  color: #333333;
+}

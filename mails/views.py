@@ -16,6 +16,20 @@ from .models import Credential
 from contacts.models import get_contacts_for_user
 import utils
 
+from django.template import RequestContext
+
+def sign_in(request):
+    return render(request, "sign_in.html", RequestContext(request))
+
+def inbox(request):
+    return render(request, "inbox.html", RequestContext(request))
+
+from contacts.models import get_contacts_for_user
+from oauth2client.django_orm import Storage
+
+import utils
+
+
 def index(request):
     if request.method == 'POST':
         form = SendMailForm(request.POST,request.FILES)

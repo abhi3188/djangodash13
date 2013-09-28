@@ -22,7 +22,7 @@ class GmailTransport(object):
 
     def get_message(self):
         ''' get messages without deleting on server.'''
-        typ, inbox = self.server.search(None, 'All')
+        typ, inbox = self.server.search(None, 'Inbox')
         if inbox[0]:
             for key in inbox[0].split():
                 try:
