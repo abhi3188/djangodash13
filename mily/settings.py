@@ -1,5 +1,6 @@
 # Django settings for mily project.
 import os
+import json
 
 from oauth2client.client  import flow_from_clientsecrets
 
@@ -191,12 +192,15 @@ LOGGING = {
     }
 }
 
-if DEBUG:
-    oauth2callback = 'http://localhost:8000/oauth2callback'
 
-CLIENT_SECRETS = os.path.join(os.path.dirname(__file__), '..', 'client_secrets.json')
+oauth2callback = 'http://localhost:8000/oauth2callback'
+
+CLIENT_SECRETS_FILE = os.path.join(os.path.dirname(__file__), '..', 'client_secrets.json')
+
+CLIENT_SECRETS = json.loads(open(CLIENT_SECRETS_FILE).read())['installed']
+GOOGLE_SCOPE = 'https://mail.google.com/ https://www.google.com/m8/feeds'
 
 FLOW = flow_from_clientsecrets(
-    CLIENT_SECRETS,
-    scope='https://mail.google.com/ https://www.google.com/m8/feeds',
+    CLIENT_SECRETS_FILE,
+    scope= GOOGLE_SCOPE,
     redirect_uri= oauth2callback)
