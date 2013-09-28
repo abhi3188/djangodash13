@@ -39,6 +39,7 @@ def home(request):
         authorize_url = settings.FLOW.step1_get_authorize_url()
         return HttpResponseRedirect(authorize_url)
     else:
+#        mails = get_mails_for_user(request.user)
         contacts = get_contacts_for_user(request.user)
         return render(request, "home.html", locals())
 
