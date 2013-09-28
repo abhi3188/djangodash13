@@ -84,7 +84,7 @@ html,body
 
 .column_left_border {
   border-left:1px solid $light_gray_e;
-  @include custom_box_shadow(-5px, 0px, 4px, -5px, $light_gray_c);
+
 }
 
 ul.errorlist > li {
