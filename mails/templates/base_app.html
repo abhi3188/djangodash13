@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Mily</title>
+
+    <link rel="stylesheet" href="{{ STATIC_URL }}zurb/stylesheets/app.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}zurb/stylesheets/ie8-grid-foundation-4.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}zurb/foundation-icons/foundation-icons.css">
+
+    <script src="{{ STATIC_URL }}zurb/javascripts/vendor/custom.modernizr.js"></script>
+
+</head>
+<body>
+
+<div id="wrap">
+{% block nav %}
+
+{% endblock nav %}
+
+{% block sub_nav %}
+
+{% endblock sub_nav %}
+
+
+<div class="row row_wide">
+    {% block main_content %}
+
+    <div class="medium-3 large-3 columns custom_sticky column_no_padding">
+        {% block left_content %}
+Hell    
+        {% endblock left_content %}
+    </div>
+
+
+    <div class="medium-9 large-9 columns column_left_border">
+        {% block right_content %}
+o
+        {% endblock right_content %}
+    </div>
+    {% endblock main_content %}
+</div> <!-- end of row div -->
+
+<div class="push"></div><!-- for making footer stick to the bottom -->
+
+</div><!-- end of div wrap -->
+
+
+
+
+
+
+    <script>
+    document.write('<script src=' +
+    ('__proto__' in {} ? '{{ STATIC_URL }}zurb/javascripts/vendor/zepto' : '{{ STATIC_URL }}zurb/javascripts/vendor/jquery') +
+    '.js><\/script>')
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places&v=3.exp"></script>
+    <script src="{{ STATIC_URL }}imly/javascripts/app.js"></script>
+    
+    {% block extra_javascript %}
+
+    {% endblock extra_javascript %}
+
+          <script src="{{ STATIC_URL }}zurb/javascripts/foundation/foundation.js"></script>
+
+          <script src="{{ STATIC_URL }}zurb/javascripts/foundation/foundation.abide.js"></script>
+
+          <script src="{{ STATIC_URL }}zurb/javascripts/foundation/foundation.alerts.js"></script>
+
+          <script src="{{ STATIC_URL }}zurb/javascripts/foundation/foundation.clearing.js"></script>
+
+          <script src="{{ STATIC_URL }}zurb/javascripts/foundation/foundation.cookie.js"></script>
+
+          <script src="{{ STATIC_URL }}zurb/javascripts/foundation/foundation.dropdown.js"></script>
+
+          <script src="{{ STATIC_URL }}zurb/javascripts/foundation/foundation.forms.js"></script>
+
+          <script src="{{ STATIC_URL }}zurb/javascripts/foundation/foundation.interchange.js"></script>
+
+          <script src="{{ STATIC_URL }}zurb/javascripts/foundation/foundation.joyride.js"></script>
+
+          <script src="{{ STATIC_URL }}zurb/javascripts/foundation/foundation.magellan.js"></script>
+
+          <script src="{{ STATIC_URL }}zurb/javascripts/foundation/foundation.orbit.js"></script>
+
+          <script src="{{ STATIC_URL }}zurb/javascripts/foundation/foundation.placeholder.js"></script>
+
+          <script src="{{ STATIC_URL }}zurb/javascripts/foundation/foundation.reveal.js"></script>
+
+          <script src="{{ STATIC_URL }}zurb/javascripts/foundation/foundation.section.js"></script>
+
+          <script src="{{ STATIC_URL }}zurb/javascripts/foundation/foundation.tooltips.js"></script>
+
+          <script src="{{ STATIC_URL }}zurb/javascripts/foundation/foundation.topbar.js"></script>
+
+
+
+
+    <script>
+    $(document).foundation();
+    </script>
+
+</body>
+</html>

@@ -50,3 +50,4 @@ def auth_return(request):
     storage = Storage(Credential, 'id', request.user, 'credential')
     storage.put(credential)
     return HttpResponseRedirect("/")
+
