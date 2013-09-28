@@ -1,0 +1,16 @@
+/* line 6, ../sass/custom.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 11, ../sass/custom.scss */
+#wrap {
+  min-height: 100%;
+  margin: 0 auto -150px;
+}
+
+/* line 17, ../sass/custom.scss */
+.footer, .push {
+  clear: both;
+  height: 150px;
+}

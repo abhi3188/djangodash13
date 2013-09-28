@@ -51,6 +51,10 @@ $em-base: 16 !default;
 
 $default-float: left;
 
+
+// IMPORT CUSTOM VARIABLES
+@import "custom_vars.scss";
+
 // $body-bg: #fff;
 // $body-font-color: #222;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
