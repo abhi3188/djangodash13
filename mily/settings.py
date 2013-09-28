@@ -1,5 +1,8 @@
 # Django settings for mily project.
 import os
+
+from oauth2client.client  import flow_from_clientsecrets
+
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 
 DEBUG = True
@@ -11,8 +14,8 @@ ADMINS = (
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = 'imlyfood'
-EMAIL_HOST_PASSWORD = 'imlyfood@13'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
@@ -120,9 +123,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
-    "django.contrib.auth.backends.ModelBackend",
+
     # `allauth` specific authentication methods, such as login by e-mail
     "allauth.account.auth_backends.AuthenticationBackend",
+        "django.contrib.auth.backends.ModelBackend",
 )
 
 
@@ -148,7 +152,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'south',    
+   # 'south',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -186,3 +190,13 @@ LOGGING = {
         },
     }
 }
+
+if DEBUG:
+    oauth2callback = 'http://localhost:8000/oauth2callback'
+
+CLIENT_SECRETS = os.path.join(os.path.dirname(__file__), '..', 'client_secrets.json')
+
+FLOW = flow_from_clientsecrets(
+    CLIENT_SECRETS,
+    scope='https://mail.google.com/ https://www.google.com/m8/feeds',
+    redirect_uri= oauth2callback)
