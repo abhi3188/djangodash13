@@ -1,5 +1,25 @@
 @import "compass";
 
+$small-scr:emCalc(768);
+$imly_orange: #f05a28;
+$imly_light_orange: #ff7752;
+$imly_dark_orange: #782d14;
+$white: #ffffff;
+$black: #000;
+$dark_gray_2: #222;
+$dark_gray_3: #333;
+$dark_gray_4: #444;
+$dark_gray_6: #666;
+$light_gray_9: #999;
+$light_gray_c: #ccc;
+$light_gray_e: #e5e5e5;
+$light_gray_f: #f5f5f5;
+$zurb_blue: #2ba6cb;
+$zurb_green: #5da423;
+$facebook_blue : #3b5998;
+$twitter_blue: #4099ff;
+$rss_orange: #ff6600;
+
 // MAKING FOOTER STICK TO THE BOTTOM
 
 html,body
@@ -17,4 +37,99 @@ html,body
 {
     clear: both;
     height: 150px;
+}
+
+// CUSTOM GENERIC GLOBAL CLASSES
+
+::selection {
+  background: #f16a3d;
+  color: #fff;
+  text-shadow:none;
+}
+
+.row_wide {
+  max-width: 100%;
+}
+
+.row_wide2{
+  max-width:80em;
+}
+
+.row_wide_with_padding{
+  max-width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.row_wide_custom {
+  max-width: 1280px;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.white {
+  color: $white;
+}
+
+.orange {
+  color: $imly_orange;
+}
+
+.column_no_padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.column_left_border {
+  border-left:1px solid $light_gray_e;
+  @include custom_box_shadow(-5px, 0px, 4px, -5px, $light_gray_c);
+}
+
+ul.errorlist > li {
+  list-style: none;
+  color: $imly_light_orange;
+}
+
+.button {
+  -moz-box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset;
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset;
+}
+
+.custom_button {
+  background: $imly_orange;
+  border-color: darken($imly_orange,10%);
+  &:hover {
+    background: darken($imly_orange,10%);
+  }
+}
+
+textarea {
+  min-height: 150px;
+}
+
+.muted {
+  color: $light_gray_9;
+}
+
+.font_13{
+  font-size: emCalc(13);
+  padding-top: 1em;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.caret {
+  display: inline-block;
+  width: 0; 
+  height: 0;
+  vertical-align: top;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid $dark_gray_3;
+  content: ""
 }
