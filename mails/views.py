@@ -3,8 +3,15 @@ from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.core.mail import EmailMessage
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
+
+from oauth2client.django_orm import Storage
+from oauth2client import xsrfutil
 
 from .forms import SendMailForm
+from .models import Credential
+
 
 def index(request):
     if request.method == 'POST':
@@ -21,5 +28,24 @@ def index(request):
         form = SendMailForm()
     return render(request,"index.html",{'form':form})
 
+@login_required
 def home(request):
-    return render(request, "sign_in.html")
+    storage = Storage(Credential, 'id', request.user.id, 'credential')
+    credential = storage.get()
+    if credential is None or credential.invalid == True:
+        settings.FLOW.params['state'] = xsrfutil.generate_token(settings.SECRET_KEY,
+                                                       request.user)
+        authorize_url = settings.FLOW.step1_get_authorize_url()
+        return HttpResponseRedirect(authorize_url)
+    return render(request, "home.html")
+
+@login_required
+def auth_return(request):
+    if not xsrfutil.validate_token(settings.SECRET_KEY, request.REQUEST['state'],
+                                   request.user):
+        return  HttpResponseBadRequest()
+    credential = settings.FLOW.step2_exchange(request.REQUEST)
+    storage = Storage(Credential, 'id', request.user, 'credential')
+    storage.put(credential)
+    return HttpResponseRedirect("/")
+

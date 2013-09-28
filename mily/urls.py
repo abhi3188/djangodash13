@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-from mails.views import index
+from mails.views import home, auth_return
 
 admin.autodiscover()
 
@@ -16,6 +16,9 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
 
     url(r'^accounts/',include('allauth.urls')),
+    url(r'^$', home, name="home"),
+    url(r'^oauth2callback$', auth_return,name="oauth2callback"),
+
     url(r'^admin/', include(admin.site.urls)),
     url(r'^mails/', include('mails.urls', namespace="mails")),
     url(r'^documents/', include('documents.urls', namespace="documents")),
