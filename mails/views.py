@@ -14,6 +14,8 @@ from oauth2client import xsrfutil
 from .forms import SendMailForm
 from .models import Credential
 from contacts.models import get_contacts_for_user
+from oauth2client.django_orm import Storage
+
 import utils
 
 def index(request):
