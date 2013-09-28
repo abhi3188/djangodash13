@@ -68,14 +68,88 @@
 
 {% block right_content %}
     <div class="row row_wide">
-        <div class="medium-3 large-3 columns people_list">
-            people
+        <div class="medium-5 large-3 columns people_list">
+            <div class="row">
+                <div class="medium-12 large-12 columns">
+                    <ul class="no-bullet">
+                        <li id="person_name">
+                            <div class="row people_link">
+                                <div class="large-12 columns">
+                                    <ul class="inline-list link_list">
+                                        <li>
+                                            <div class="people_pic">
+                                                <img src="{{ STATIC_URL }}images/abhishek_singh.jpg" width="50" class="img_rounded">
+                                                <div class="people_pic_unread">
+                                                    <p class="unread_msg_number">2</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="link_text">
+                                            <h4>Abhishek Singh</h4>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="person_name">
+                            <div class="row people_link">
+                                <div class="large-12 columns">
+                                    <ul class="inline-list link_list">
+                                        <li>
+                                            <div class="people_pic">
+                                                <img src="{{ STATIC_URL }}images/abhishek_singh.jpg" width="50" class="img_rounded">
+                                                <div class="people_pic_unread">
+                                                    <p class="unread_msg_number">1</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="link_text">
+                                            <h4>Pavan Mishra</h4>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="person_name">
+                            <div class="row people_link">
+                                <div class="large-12 columns">
+                                    <ul class="inline-list link_list">
+                                        <li>
+                                            <div class="people_pic">
+                                                <img src="{{ STATIC_URL }}images/abhishek_singh.jpg" width="50" class="img_rounded">
+                                                <div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="link_text">
+                                            <h4>Manish Kansara</h4>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
         </div>
         
-        <div class="medium-9 large-9 columns content_pane">
+        <div class="medium-7 large-9 columns content_pane">
             bye
         </div> 
         
     </div>
 
 {% endblock right_content %}
+
+{% block extra_javascript %}
+
+<script>
+    $(document).ready(function(){
+        var window_height = $(window).height();
+       $(".content_pane").css("min-height",window_height); 
+    });
+</script>
+{% endblock extra_javascript %}

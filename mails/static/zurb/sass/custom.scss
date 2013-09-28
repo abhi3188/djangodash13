@@ -178,19 +178,6 @@ textarea {
 }
 
 
-.main_content {
-    .people_list {
-        position: fixed;
-        top:0;
-        background: red;
-    }
-    
-    .content_pane {
-        background: green;
-    }  
-}
-
-
 // SELECT MAIN AREAS LINK
 
 
@@ -201,6 +188,7 @@ textarea {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   cursor: pointer;
+  height: 100px;
   //box-shadow:inset 25px 0px 0px -5px $imly_orange;
   // border-left: 20px solid $imly_orange;
 
@@ -282,4 +270,70 @@ textarea {
       color:$dark_gray_3;
     }
   }
+}
+
+// PEOPLE LIST
+.main_content {
+    
+    .people_list {
+        
+        .no-bullet {
+            margin: 0;
+        }
+        
+        .people_link {
+            height: 100px;
+            border-bottom: 1px solid $light_gray_c;
+        }
+        
+        ul.link_list {
+            margin-bottom: 0;
+            padding: 22px 0px 0px 10px;
+            
+            .people_pic{
+                position: relative;
+                img {
+                    width: 50;
+                }
+                
+                .img_rounded{
+                    border-radius: 50%;
+                    border:3px solid $light_gray_c;
+                }
+                
+                .people_pic_unread{
+                    position: absolute;
+                    top:0;
+                    left: 0;
+                    z-index:50;
+                    width:100%;
+                    height: 100%;
+                    color:$white;
+                    background: rgba(0,0,0,.5);
+                    text-align: center;
+                    border-radius: 50%;
+                    border:3px solid $mily_green;
+                    
+                    .unread_msg_number{
+                        line-height: 250%;
+                        margin: 0;
+                    }
+                }
+            }
+            
+            
+            .link_text {
+                h4 {
+                    font-size:emCalc(16);
+                    @include ellipsis();
+                    line-height: 250%;
+                }
+            }
+        }
+    }
+    
+    
+    .content_pane {
+        border-left: 1px solid $light_gray_c;
+    }  
 }
