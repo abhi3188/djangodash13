@@ -1,7 +1,7 @@
 @import "compass";
 
 $small-scr:emCalc(768);
-$imly_orange: #f05a28;
+$mily_green: #27ad90;
 $imly_light_orange: #ff7752;
 $imly_dark_orange: #782d14;
 $white: #ffffff;
@@ -20,6 +20,29 @@ $facebook_blue : #3b5998;
 $twitter_blue: #4099ff;
 $rss_orange: #ff6600;
 $google_red: #d54937;
+
+// CUSTOM MIXINS
+
+@mixin centered_ul{
+  text-align: center;
+  li{
+    float: none;
+    display: inline-block;
+  }
+}
+
+@mixin custom_box_shadow($horoff, $veroff, $blur, $spread, $color){
+  -moz-box-shadow: $horoff $veroff $blur $spread $color;
+  -webkit-box-shadow: $horoff $veroff $blur $spread $color;
+  box-shadow: $horoff $veroff $blur $spread $color;
+}
+
+@mixin custom_inset_box_shadow($horoff, $veroff, $blur, $spread, $color){
+  -moz-box-shadow: inset $horoff $veroff $blur $spread $color;
+  -webkit-box-shadow: inset $horoff $veroff $blur $spread $color;
+  box-shadow: inset $horoff $veroff $blur $spread $color;
+}
+
 
 // MAKING FOOTER STICK TO THE BOTTOM
 
@@ -74,13 +97,20 @@ html,body
   color: $white;
 }
 
-.orange {
-  color: $imly_orange;
+.green {
+  color: $mily_green;
 }
 
 .column_no_padding {
   padding-left: 0;
   padding-right: 0;
+  background: $dark_gray_3;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  
 }
 
 .column_left_border {
@@ -100,10 +130,10 @@ ul.errorlist > li {
 }
 
 .custom_button {
-  background: $imly_orange;
-  border-color: darken($imly_orange,10%);
+  background: $mily_green;
+  border-color: darken($mily_green,10%);
   &:hover {
-    background: darken($imly_orange,10%);
+    background: darken($mily_green,10%);
   }
 }
 
@@ -145,4 +175,111 @@ textarea {
 
 .landing_page {
     padding-top: 5%;
+}
+
+
+.main_content {
+    .people_list {
+        position: fixed;
+        top:0;
+        background: red;
+    }
+    
+    .content_pane {
+        background: green;
+    }  
+}
+
+
+// SELECT MAIN AREAS LINK
+
+
+.row .mail_side_nav_link{
+  border-bottom: 1px solid $light_gray_e;
+  margin-right:0;
+  padding-left:5%;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  cursor: pointer;
+  //box-shadow:inset 25px 0px 0px -5px $imly_orange;
+  // border-left: 20px solid $imly_orange;
+
+  ul.inline-list{
+    margin-bottom: 0;  
+  }
+  
+  ul.link_list{
+    li.link_text{
+      color: $white;
+      text-align: center;
+      font-weight: 200;
+      font-size: emCalc(14);
+      @include ellipsis();
+    }
+  }
+  
+  ul.no-bullet {
+    margin-left: 0.5em;
+  }
+  
+  h1{
+    margin-top:0;
+    margin-bottom: 0;
+    text-align: center;
+    i{
+        color: $black;
+    }
+  }
+  
+  small{
+    font-size:65%;
+    color:$light_gray_9;
+    text-transform: uppercase;
+  }
+  
+  &:hover {
+    background: $dark_gray_2;
+    @include custom_inset_box_shadow(25px, 0px, 0px, -5px, $mily_green);
+    i{
+      color:$mily_green;
+    }
+  }
+}
+
+.row .active{
+  background: $white;
+  cursor: default;
+  @include custom_inset_box_shadow(25px, 0px, 0px, -5px, $mily_green);
+  
+
+  
+  ul.link_list{
+    li.link_text{
+      color: $black;
+    }
+  }
+  
+    h1{
+        color:$mily_green;
+        i {
+           color:$mily_green; 
+        }
+      }
+  
+  small{
+    color:$dark_gray_3;
+  }
+  
+  &:hover{
+    background: $white;
+    color:$black;
+    
+    i{
+      color:$mily_green;
+    }
+    
+    small{
+      color:$dark_gray_3;
+    }
+  }
 }

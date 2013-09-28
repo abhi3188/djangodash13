@@ -1,10 +1,81 @@
 {% extends "base_app.html" %}
 
-{% block main_content %}
+{% block left_content %}
+    <ul class="no-bullet">
+        <li id="compose_mail">
+            <div class="row mail_side_nav_link active" >
+                <div class="large-12 columns">
+                    <ul class="no-bullet link_list">
+                        <li><h1><i class="fi-pencil"></i></h1></li>
+                        <li class="link_text">
+                            Compose
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li id="family">
+            <div class="row mail_side_nav_link">
+                <div class="large-12 columns">
+                    <ul class="no-bullet link_list">
+                        <li><h1><i class="fi-heart"></i></h1></li>
+                        <li class="link_text">
+                            Family
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li id="friends">
+            <div class="row mail_side_nav_link">
+                <div class="large-12 columns">
+                    <ul class="no-bullet link_list">
+                        <li><h1><i class="fi-star"></i></h1></li>
+                        <li class="link_text">
+                            Friends
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li id="work">
+            <div class="row mail_side_nav_link">
+                <div class="large-12 columns">
+                    <ul class="no-bullet link_list">
+                        <li><h1><i class="fi-shopping-bag"></i></h1></li>
+                        <li class="link_text">
+                            Work
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li id="friends">
+            <div class="row mail_side_nav_link">
+                <div class="large-12 columns">
+                    <ul class="no-bullet link_list">
+                        <li><h1><i class="fi-paperclip"></i></h1></li>
+                        <li class="link_text">
+                            Attachments
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
 
-<div class="large-4 large-centered columns text-center landing_page">
-    <img src="{{ STATIC_URL }}images/mily_logo.png" alt="Mily Mail- Email for People">
-        <br><br><br><br>
-    <a class="large button expand gmail_button round">Sign-in with Gmail</a>    
-</div>
-{% endblock main_content %}
+{% endblock left_content %}
+
+{% block right_content %}
+    <div class="row row_wide">
+        <div class="medium-3 large-3 columns people_list">
+            people
+        </div>
+        
+        <div class="medium-9 large-9 columns content_pane">
+            bye
+        </div> 
+        
+    </div>
+
+{% endblock right_content %}

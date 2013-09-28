@@ -13,7 +13,8 @@ from oauth2client import xsrfutil
 
 from .forms import SendMailForm
 from .models import Credential
-<<<<<<< HEAD
+from contacts.models import get_contacts_for_user
+import utils
 
 from django.template import RequestContext
 
@@ -22,10 +23,7 @@ def sign_in(request):
 
 def inbox(request):
     return render(request, "inbox.html", RequestContext(request))
-=======
-from contacts.models import get_contacts_for_user
-import utils
->>>>>>> 75cecb117d1e2eef8d1d6127503ead59a04171bb
+
 
 def index(request):
     if request.method == 'POST':
