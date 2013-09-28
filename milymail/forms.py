@@ -6,3 +6,4 @@ class SendMailForm(forms.Form):
     subject = forms.CharField(max_length=100)
     message = forms.CharField()
     cc_myself = forms.BooleanField(required=False)
+    upload = forms.FileField(required=False)

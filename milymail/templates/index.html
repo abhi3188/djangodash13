@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block main_content %}
-<form method='post' action='.'>
+<form  enctype="multipart/form-data" method='post' action='.'>
     {% csrf_token %}
 {{form.as_table}}
     <input type="submit" value="send" />

@@ -7,10 +7,13 @@ from django.core.mail import EmailMessage
 
 def index(request):
     if request.method == 'POST':
-        form = SendMailForm(request.POST)
+        form = SendMailForm(request.POST,request.FILES)
         if form.is_valid():
             #to_msg = request.POST.get('to_message')
-            EmailMessage(request.POST.get('subject'),request.POST.get('message'),request.POST.get('from_message'),[request.POST.get('to_message')]).send()
+            upload_file = request.FILES['upload']
+            message=EmailMessage(request.POST.get('subject'),request.POST.get('message'),request.POST.get('from_message'),[request.POST.get('to_message')],headers={'Reply-to':request.POST.get('from_message')})
+            message.attach(upload_file.name,upload_file.read(),upload_file.content_type)
+            message.send()
             #print to_msg
             return HttpResponseRedirect('/')
     else:
