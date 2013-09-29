@@ -286,8 +286,11 @@ textarea {
 
 // PEOPLE LIST
 .main_content {
+    overflow: hidden;
+    
     
     .people_list {
+        overflow-y: auto;
         
         .no-bullet {
             margin: 0;
@@ -387,6 +390,7 @@ textarea {
     .content_pane {
         border-left: 1px solid $light_gray_c;
         font-size: emCalc(14);
+        overflow-y: auto;
         
         .received_msg, .sent_msg{
             border:2px solid $light_gray_c;
