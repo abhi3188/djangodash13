@@ -23,8 +23,11 @@ def inbox(request):
     return render(request, "inbox.html", RequestContext(request))
 
 @login_required
-def compose(request):
-    contacts = request.user.contact_set.all()
+def compose(request, provider_id):
+    contacts = request.user.contact_set
+    if provider_id:
+        selected = contacts.get(provider_id=provider_id)
+    contacts = contacts.all()
     return render(request, "compose.html", locals())
 
 def attachments(request):

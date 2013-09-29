@@ -7,7 +7,7 @@ urlpatterns = patterns('',
     url(r"^home/$", home, name="home"),
     url(r"^sign_in/$", sign_in),
     url(r"^inbox/$", inbox),
-    url(r"^compose/$", compose),
+    url(r"^compose/(?P<provider_id>\w+)?$", compose),
     url(r"^attachments/$", attachments),
 )
 
