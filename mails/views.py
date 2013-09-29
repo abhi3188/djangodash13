@@ -23,6 +23,9 @@ def inbox(request):
 
 def compose(request):
     return render(request, "compose.html")
+
+def attachments(request):
+    return render(request, "attachments.html")
     
 def index(request):
     if request.method == 'POST':
