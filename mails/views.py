@@ -68,8 +68,7 @@ def attachments(request, provider_id):
     contacts = request.user.contact_set.all()
     selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
     documents = MessageAttachment.objects.filter(message__mailbox__milibox__user=request.user, message__contactmessage__contact=selected).order_by('-id')
-    raise Exception(documents)
-    return render(request, "attachments.html")
+    return render(request, "attachments.html", locals())
 
 
 def index(request):

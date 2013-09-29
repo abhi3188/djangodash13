@@ -6,7 +6,7 @@
                         {% for contact in contacts %}
                         <li id="person_name">
                         <a href="{% url 'mails:compose' contact.provider_id %}">
-                            <div class="row people_link selected">
+                            <div class="row people_link {% if selected == contact %}selected {% endif %}">
                                 <div class="large-12 columns">
                                     <ul class="inline-list link_list">
                                         <li class="pic">
@@ -37,12 +37,14 @@
                                         </li>
                                     </ul>
                                 </div>
+                                {% if selected == contact %}
                                 <div class="arrow-left selected_person"></div>
+                                {% endif %}
                             </div>
                         </a>
                         </li>
                         {% endfor %}
-                        
+
                         <li id="person_name">
                             <div class="row people_link">
                                 <div class="large-12 columns">
@@ -76,7 +78,7 @@
                                                     <i class="fi-shopping-bag"></i>
                                                 </div>
                                                 <div>
-                                                    
+
                                                 </div>
                                             </div>
                                         </li>
@@ -87,8 +89,8 @@
                                 </div>
                             </div>
                         </li>
-                        
-                        
+
+
                     </ul>
                 </div>
             </div>
