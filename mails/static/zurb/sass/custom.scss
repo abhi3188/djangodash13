@@ -187,9 +187,9 @@ textarea {
 .arrow-left {
     width: 0; 
     height: 0; 
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent; 
-    border-right:15px solid $mily_green; 
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent; 
+    border-right:10px solid $mily_green; 
 }
 // SELECT MAIN AREAS LINK
 
@@ -305,7 +305,7 @@ textarea {
             .selected_person{
                 position: absolute;
                 right:0;
-                top: 33%;
+                top: 37%;
                 margin-top: auto;
                 margin-bottom: auto;
                 
@@ -319,6 +319,8 @@ textarea {
         }
         
         .people_link.selected{
+            
+            border-right: 10px solid $mily_green;
             &:hover{
                 background: $white;
                 cursor: default;
