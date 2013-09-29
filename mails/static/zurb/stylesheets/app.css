@@ -8135,16 +8135,15 @@ textarea {
   border-bottom: 1px solid #e5e5e5;
   margin-right: 0;
   padding-left: 5%;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-top: 0.4em;
   cursor: pointer;
-  height: 100px;
+  height: 90px;
 }
-/* line 207, ../sass/custom.scss */
+/* line 206, ../sass/custom.scss */
 .row .mail_side_nav_link ul.inline-list {
   margin-bottom: 0;
 }
-/* line 212, ../sass/custom.scss */
+/* line 211, ../sass/custom.scss */
 .row .mail_side_nav_link ul.link_list li.link_text {
   color: white;
   text-align: center;
@@ -8156,15 +8155,16 @@ textarea {
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
-/* line 221, ../sass/custom.scss */
+/* line 220, ../sass/custom.scss */
 .row .mail_side_nav_link ul.no-bullet {
   margin-left: 0.5em;
 }
-/* line 225, ../sass/custom.scss */
+/* line 224, ../sass/custom.scss */
 .row .mail_side_nav_link h1 {
   margin-top: 0;
   margin-bottom: 0;
   text-align: center;
+  font-size: 2.25em;
 }
 /* line 229, ../sass/custom.scss */
 .row .mail_side_nav_link h1 i {
@@ -8243,7 +8243,7 @@ textarea {
 }
 /* line 299, ../sass/custom.scss */
 .main_content .people_list .people_link {
-  height: 100px;
+  height: 90px;
   border-bottom: 1px solid #cccccc;
   position: relative;
 }
@@ -8251,7 +8251,7 @@ textarea {
 .main_content .people_list .people_link .selected_person {
   position: absolute;
   right: 0;
-  top: 37%;
+  top: 36%;
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -8272,11 +8272,11 @@ textarea {
 /* line 331, ../sass/custom.scss */
 .main_content .people_list ul.link_list {
   margin-bottom: 0;
-  padding: 22px 0px 0px 10px;
+  padding: 17px 0px 0px 0px;
 }
 /* line 335, ../sass/custom.scss */
 .main_content .people_list ul.link_list li.pic {
-  margin-left: 1em;
+  margin-left: 1.8em;
 }
 /* line 339, ../sass/custom.scss */
 .main_content .people_list ul.link_list .people_pic {

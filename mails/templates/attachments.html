@@ -6,83 +6,8 @@
 
 {% block right_content %}
     <div class="row row_wide">
-        <div class="medium-5 large-3 columns people_list">
-            <div class="row">
-                <div class="medium-12 large-12 columns">
-                    <ul class="no-bullet">
-                        <li id="person_name">
-                            <div class="row people_link selected">
-                                <div class="large-12 columns">
-                                    <ul class="inline-list link_list">
-                                        <li class="pic">
-                                            <div class="people_pic">
-                                                <img src="{{ STATIC_URL }}images/abhishek_singh.jpg" width="50" class="img_rounded">
-                                                <div class="people_category">
-                                                    <i class="fi-heart"></i>
-                                                </div>
-                                                <div class="people_pic_unread">
-                                                    <p class="unread_msg_number">2</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="link_text">
-                                            Abhishek Singh
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="arrow-left selected_person"></div>
-                            </div>
-                        </li>
-                        <li id="person_name">
-                            <div class="row people_link">
-                                <div class="large-12 columns">
-                                    <ul class="inline-list link_list">
-                                        <li class="pic">
-                                            <div class="people_pic">
-                                                <img src="{{ STATIC_URL }}images/abhishek_singh.jpg" width="50" class="img_rounded">
-                                                <div class="people_category">
-                                                    <i class="fi-star"></i>
-                                                </div>
-                                                <div class="people_pic_unread">
-                                                    <p class="unread_msg_number">2</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="link_text">
-                                            Pavan Mishra
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li id="person_name">
-                            <div class="row people_link">
-                                <div class="large-12 columns">
-                                    <ul class="inline-list link_list">
-                                        <li class="pic">
-                                            <div class="people_pic">
-                                                <img src="{{ STATIC_URL }}images/abhishek_singh.jpg" width="50" class="img_rounded">
-                                                <div class="people_category">
-                                                    <i class="fi-shopping-bag"></i>
-                                                </div>
-                                                <div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="link_text">
-                                            Manish Kansara
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
+        
+        {% include "people_list.html" %}
         
         <div class="medium-7 large-9 columns content_pane">
             <div class="attachments">

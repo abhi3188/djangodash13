@@ -19,18 +19,20 @@ from contacts.models import get_contacts_for_user,Contact,ContactEmail
 def sign_in(request):
     return render(request, "sign_in.html", RequestContext(request))
 
-def inbox(request):
-    contacts = request.user.contact_set
-    if provider_id:
-        selected = contacts.get(provider_id=provider_id)
-    messages = ''
-    return render(request, "inbox.html", RequestContext(request))
+@login_required
+def inbox(request, provider_id):
+    name_style="inbox"
+    contacts = request.user.contact_set.all()
+    selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
+    messages = request.user.milibox_set.all()[0].messages.order_by('-id')
+    return render(request, "inbox.html", locals())
 
 @login_required
 def compose(request, provider_id):
+    name_style="compose"
     contacts = request.user.contact_set
     if provider_id:
-        selected = contacts.get(provider_id=provider_id)
+        #selected = contacts.get(provider_id=provider_id)
         email = ContactEmail.objects.get(contact__provider_id=provider_id)
         if request.method == 'POST':
             form = SendMailForm(request.POST,request.FILES)
@@ -42,11 +44,17 @@ def compose(request, provider_id):
                 return HttpResponseRedirect('/')
         else:
             form = SendMailForm({'to_message':email})
+
+    selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
     contacts = contacts.all()
     return render(request, "compose.html", locals())
 
-def attachments(request):
+def attachments(request, provider_id):
+    name_style="attachments"
+    contacts = request.user.contact_set.all()
+    selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
     return render(request, "attachments.html")
+
 
 def index(request):
     if request.method == 'POST':
