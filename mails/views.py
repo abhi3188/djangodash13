@@ -7,6 +7,7 @@ from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.template import RequestContext
+from django.views.decorators.csrf import csrf_exempt
 
 from oauth2client import xsrfutil
 from oauth2client.django_orm import Storage
@@ -17,11 +18,21 @@ from .models import MiliBox, Credential
 from .forms import SendMailForm
 from contacts.models import get_contacts_for_user,Contact,ContactEmail
 
+
 def sign_in(request):
     return render(request, "sign_in.html", RequestContext(request))
 
 def categorize(request):
-    return render(request, "categorize.html")
+    contacts = request.user.contact_set.all()
+
+    return render(request, "categorize.html",locals())
+
+@csrf_exempt
+def categorize_type(request,id,type):
+    contact = request.user.contact_set.get(id=id)
+    contact.contact_type = type
+    contact.save()
+    return HttpResponse("Success")
 
 @login_required
 def inbox(request, provider_id):
