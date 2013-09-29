@@ -177,7 +177,13 @@ textarea {
     padding-top: 5%;
 }
 
-
+.arrow-left {
+    width: 0; 
+    height: 0; 
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent; 
+    border-right:15px solid $mily_green; 
+}
 // SELECT MAIN AREAS LINK
 
 
@@ -237,7 +243,7 @@ textarea {
 .row .active{
   background: $mily_green;
   cursor: default;
-  @include custom_inset_box_shadow(25px, 0px, 0px, -5px, $mily_green);
+  @include custom_inset_box_shadow(25px, 0px, 0px, -5px, $white);
   
 
   
@@ -248,9 +254,9 @@ textarea {
   }
   
     h1{
-        color:$mily_green;
+        color:$white;
         i {
-           color:$mily_green; 
+           color:$white; 
         }
       }
   
@@ -259,11 +265,11 @@ textarea {
   }
   
   &:hover{
-    background: $white;
+    background: $mily_green;
     color:$black;
-    
+    @include custom_inset_box_shadow(25px, 0px, 0px, -5px, $white);
     i{
-      color:$mily_green;
+      color:$white;
     }
     
     small{
@@ -284,7 +290,17 @@ textarea {
         .people_link {
             height: 100px;
             border-bottom: 1px solid $light_gray_c;
+            position: relative;
+            
+            .selected_person{
+                position: absolute;
+                right:0;
+                top: 33%;
+                margin-top: auto;
+                margin-bottom: auto;
+            }
         }
+        
         
         ul.link_list {
             margin-bottom: 0;
