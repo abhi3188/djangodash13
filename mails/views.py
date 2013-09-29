@@ -22,20 +22,20 @@ def sign_in(request):
 @login_required
 def inbox(request, provider_id):
     contacts = request.user.contact_set.all()
-    if provider_id:
-        selected = contacts.get(provider_id=provider_id)
+    selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
     messages = request.user.milibox_set.all()[0].messages.order_by('-id')
     return render(request, "inbox.html", locals())
 
 @login_required
 def compose(request, provider_id):
     contacts = request.user.contact_set
-    if provider_id:
-        selected = contacts.get(provider_id=provider_id)
+    selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
     contacts = contacts.all()
     return render(request, "compose.html", locals())
 
 def attachments(request, provider_id):
+    contacts = request.user.contact_set.all()
+    selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
     return render(request, "attachments.html")
 
 def index(request):
