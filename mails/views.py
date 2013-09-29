@@ -20,6 +20,9 @@ from contacts.models import get_contacts_for_user,Contact,ContactEmail
 def sign_in(request):
     return render(request, "sign_in.html", RequestContext(request))
 
+def categorize(request):
+    return render(request, "categorize.html")
+
 @login_required
 def inbox(request, provider_id):
     name_style="inbox"

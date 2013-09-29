@@ -549,3 +549,36 @@ display: inherit;
         border: 2px solid darken($mily_green, 10%);
     }
 }
+
+.no_margin {
+    margin-bottom: 0;
+}
+
+.rule {
+    color: $mily_green;
+    font-size: emCalc(20);
+    font-weight: 300;
+    margin-bottom: 2em;
+}
+
+.categorize_contacts{
+    width: 100%;
+    
+    thead{
+        font-size: emCalc(18);    
+    }
+    
+    td {
+        text-align: left;
+        padding-top:1em;
+        padding-bottom: 1em;
+        
+        form {
+            margin-bottom: 0;
+        }
+    }
+}
+
+table tr:nth-of-type(even) {
+    background: #e9f6f3;
+}
