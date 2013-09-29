@@ -109,11 +109,11 @@ def home(request):
     else:
         mail_box = MiliBox.objects.get(user=request.user)
         contacts = get_contacts_for_user(request.user)
-        Contact.objects.filter(user=request.user).delete()
-        for contact in contacts:
-            con=Contact.objects.create(user=request.user,provider_id=contact.id.text.split('/')[-1],name=contact.nickname,image_link=contact.GetPhotoLink())
-            for email in contact.email:
-                ContactEmail.objects.create(contact=con,email=email.address)
+        if not contacts:
+            for contact in contacts:
+                con=Contact.objects.create(user=request.user,provider_id=contact.id.text.split('/')[-1],name=contact.nickname,image_link=contact.GetPhotoLink())
+                for email in contact.email:
+                    ContactEmail.objects.create(contact=con,email=email.address)
     return render(request, "home.html", locals())
 
 @login_required
