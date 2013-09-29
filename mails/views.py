@@ -35,13 +35,18 @@ def compose(request, provider_id):
         #selected = contacts.get(provider_id=provider_id)
         email = ContactEmail.objects.get(contact__provider_id=provider_id)
         if request.method == 'POST':
-            form = SendMailForm(request.POST,request.FILES)
-            if form.is_valid():
-                upload_file = request.FILES['upload']
-                message=EmailMessage(request.POST.get('subject'),request.POST.get('message'),request.user.email,[request.POST.get('to_message')])
-                message.attach(upload_file.name,upload_file.read(),upload_file.content_type)
-                message.send()
-                return HttpResponseRedirect('/')
+            if request.FILES:
+                form = SendMailForm(request.POST,request.FILES)
+                if form.is_valid():
+                    upload_file = request.FILES['upload']
+                    message=EmailMessage(request.POST.get('subject'),request.POST.get('message'),request.user.email,[request.POST.get('to_message')])
+                    message.attach(upload_file.name,upload_file.read(),upload_file.content_type)
+            else:
+                form = SendMailForm(request.POST)
+                if form.is_valid():
+                    message=EmailMessage(request.POST.get('subject'),request.POST.get('message'),request.user.email,[request.POST.get('to_message')])
+            message.send()
+            return HttpResponseRedirect('/')
         else:
             #raise Exception (request.method)
             form = SendMailForm({'to_message':email})
