@@ -3,10 +3,51 @@
             <div class="row">
                 <div class="medium-12 large-12 columns">
                     <ul class="no-bullet">
+                        {% if selected %}
+                        <li class="person_name">
+                        <a href="{% url url_name selected.provider_id %}">
+                            <div class="row people_link selected">
+                                <div class="large-12 columns">
+                                    <ul class="inline-list link_list">
+                                        <li class="pic">
+                                            <div class="people_pic">
+                                                <img src="{{ STATIC_URL }}images/abhishek_singh.jpg" width="50" class="img_rounded">
+                                                {% if name_style == "compose" or name_style == "attachments" %}
+                                                    <div class="people_category">
+                                                        {% if selected.contact_type == 1 %}
+                                                        <i class="fi-heart"></i>
+                                                        {% elif selected.contact_type == 2 %}
+                                                        <i class="fi-star"></i>
+                                                        {% elif selected.contact_type == 3 %}
+                                                        <i class="fi-shopping-bag"></i>
+                                                        {% else %}
+                                                        <i class="fi-torsos-all"></i>
+                                                        {% endif %}
+                                                    </div>
+                                                {% endif %}
+                                                {% if name_style == "attachments" or name_style == "inbox" %}
+                                                <div class="people_pic_unread">
+                                                    <p class="unread_msg_number">2</p>
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                        </li>
+                                        <li class="link_text">
+                                            {{ selected.display_name }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="arrow-left selected_person"></div>
+                                
+                            </div>
+                        </a>
+                        </li>    
+                        {% endif %}
                         {% for contact in contacts %}
-                        <li id="person_name">
-                        <a href="{% url 'mails:compose' contact.provider_id %}">
-                            <div class="row people_link {% if selected == contact %}selected {% endif %}">
+                        <li class="person_name">
+                        <a href="{% url url_name contact.provider_id %}{% if name_style == "inbox" %}?type={{ inbox_tab }}{% endif %}">
+                            <div class="row people_link">
                                 <div class="large-12 columns">
                                     <ul class="inline-list link_list">
                                         <li class="pic">
@@ -37,9 +78,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                {% if selected == contact %}
-                                <div class="arrow-left selected_person"></div>
-                                {% endif %}
+                            
                             </div>
                         </a>
                         </li>
