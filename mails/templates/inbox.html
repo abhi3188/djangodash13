@@ -12,6 +12,7 @@
             <div class="row">
                 <div class="medium-12 large-12 columns">
                     <ul class="no-bullet">
+                        {% for contact in contacts %}
                         <li class="person_name">
                             <div class="row people_link selected">
                                 <div class="large-12 columns">
@@ -25,13 +26,15 @@
                                             </div>
                                         </li>
                                         <li class="link_text">
-                                            Abhishek Singh is a very very long long name
+                                            <a href="{% url "mails:inbox" contact.provider_id %}" >{{ contact.display_name }}</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="arrow-left selected_person"></div>
                             </div>
                         </li>
+                        {% endfor %}
+                        <!--
                         <li class="person_name">
                             <div class="row people_link">
                                 <div class="large-12 columns">
@@ -223,7 +226,7 @@
                             </div>
                         </li>
 
-
+                        -->
 
 
                     </ul>

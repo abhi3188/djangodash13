@@ -19,12 +19,13 @@ from contacts.models import get_contacts_for_user,Contact,ContactEmail
 def sign_in(request):
     return render(request, "sign_in.html", RequestContext(request))
 
+@login_required
 def inbox(request, provider_id):
-    contacts = request.user.contact_set
+    contacts = request.user.contact_set.all()
     if provider_id:
         selected = contacts.get(provider_id=provider_id)
     messages = request.user.milibox_set.all()[0].messages.order_by('-id')
-    return render(request, "inbox.html", RequestContext(request))
+    return render(request, "inbox.html", locals())
 
 @login_required
 def compose(request, provider_id):
@@ -34,7 +35,7 @@ def compose(request, provider_id):
     contacts = contacts.all()
     return render(request, "compose.html", locals())
 
-def attachments(request):
+def attachments(request, provider_id):
     return render(request, "attachments.html")
 
 def index(request):
