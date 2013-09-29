@@ -11,16 +11,19 @@
 
         <div class="medium-7 large-9 columns content_pane">
             <div class="attachments">
+
                 <ul class="small-block-grid-2 large-block-grid-4">
+                    {% for document in documents %}
                     <li>
                         <div class="th thumbnail_custom unseen">
                             <a href="#"><img src="{{ STATIC_URL }}images/bisc.jpg"></a>
                             <div class="info_wrapper">
-                                <h5><a href="#">Name of attach</a></h5>
+                                <h5><a href="#">{{ document.get_filename }}</a></h5>
                                 <h6>IMAGE</h6>
                             </div>
                         </div>
                     </li>
+                    {% endfor %}
                     <li>
                         <div class="th thumbnail_custom">
                             <a href="#"><img src="{{ STATIC_URL }}images/abhishek_singh.jpg"></a>

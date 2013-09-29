@@ -16,7 +16,7 @@ from django_mailbox.models import MessageAttachment
 import utils
 from .models import MiliBox, Credential
 from .forms import SendMailForm
-from contacts.models import get_contacts_for_user,Contact,ContactEmail
+from contacts.models import get_contacts_for_user,Contact,ContactEmail, ContactMessage
 
 
 def sign_in(request):
@@ -39,6 +39,14 @@ def inbox(request, provider_id):
     name_style="inbox"
     contacts = request.user.contact_set.all()
     selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
+    messages = request.user.milibox_set.all()[0].messages.order_by('-id')
+    contacts = []
+    for message in messages:
+        try:
+            contacts.append(message.contactmessage.contact)
+        except ContactMessage.DoesNotExist, Contact.DoesNotExist:
+            pass
+    contacts = set(contacts)
     messages = request.user.milibox_set.all()[0].messages.filter(contactmessage__contact=selected).order_by('-id')
     return render(request, "inbox.html", locals())
 
@@ -73,8 +81,7 @@ def attachments(request, provider_id):
     contacts = request.user.contact_set.all()
     selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
     documents = MessageAttachment.objects.filter(message__mailbox__milibox__user=request.user, message__contactmessage__contact=selected).order_by('-id')
-    #raise Exception(documents)
-    return render(request, "attachments.html")
+    return render(request, "attachments.html", locals())
 
 
 def index(request):

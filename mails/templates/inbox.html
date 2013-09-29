@@ -12,11 +12,12 @@
         {% include "people_list.html" %}
 
         <div class="medium-7 large-9 columns content_pane">
+            {% for message in messages %}
             <div class="row row_with_padding">
                 <div class="medium-6 large-6 columns">
                     <div class="row received_msg">
                         <div class="medium-12 large-12 columns msg_text">
-                            Lorem Ipsum Dolor Somet. This is some message text which i have received
+                            {{ message.text }}
                         </div>
                         <div class="medium-12 large-12 columns">
                             <div class="row action_btns">
@@ -43,7 +44,7 @@
 
                 </div>
             </div>
-
+            {% endfor %}
             <div class="row row_with_padding">
                 <div class="medium-6 large-6 columns">
 
