@@ -28,7 +28,7 @@ from contacts.models import get_contacts_for_user
 from oauth2client.django_orm import Storage
 
 import utils
-
+from .models import MiliBox
 
 def index(request):
     if request.method == 'POST':
@@ -53,7 +53,7 @@ def home(request):
         authorize_url = settings.FLOW.step1_get_authorize_url()
         return HttpResponseRedirect(authorize_url)
     else:
-#        mails = get_mails_for_user(request.user)
+        mail_box = MiliBox.objects.get(user=request.user)
         contacts = get_contacts_for_user(request.user)
         return render(request, "home.html", locals())
 
@@ -64,5 +64,6 @@ def auth_return(request):
     credential = settings.FLOW.step2_exchange(request.REQUEST)
     storage = Storage(Credential, 'id', request.user, 'credential')
     storage.put(credential)
+    mail_box=MiliBox.objects.create(name="MiliBox", user=request.user)
     return HttpResponseRedirect("/")
 
