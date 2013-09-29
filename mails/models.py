@@ -18,7 +18,7 @@ class GmailTransport(object):
         print 'user=%s\1auth=Bearer %s\1\1' % (user.email, credential.credential.access_token)
         self.server.authenticate('XOAUTH2',
                           lambda x : 'user=%s\1auth=Bearer %s\1\1' % (user.email, credential.credential.access_token))
-        self.server.select()
+        self.server.select('INBOX')
 
     def get_message(self):
         ''' get messages without deleting on server.'''
@@ -26,9 +26,10 @@ class GmailTransport(object):
         if inbox[0]:
             for key in inbox[0].split():
                 try:
-                    typ, msg_contents = self.server.fetch(key, '(RFC822)')
-                    message = email.message_from_string(msg_contents[0][1])
-                    yield message
+                    for i in xrange(1000):
+                        typ, msg_contents = self.server.fetch(key, '(RFC822)')
+                        message = email.message_from_string(msg_contents[0][1])
+                        yield message
                 except email.Errors.MessageParseError:
                         continue
 
