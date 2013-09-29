@@ -23,7 +23,7 @@ def inbox(request):
     contacts = request.user.contact_set
     if provider_id:
         selected = contacts.get(provider_id=provider_id)
-    messages = ''
+    messages = request.user.milibox_set.all()[0].messages.order_by('-id')
     return render(request, "inbox.html", RequestContext(request))
 
 @login_required
