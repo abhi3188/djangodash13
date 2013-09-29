@@ -1,9 +1,8 @@
 import logging
 
 # Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render,render_to_response
 from django.http import HttpResponse,HttpResponseRedirect
-from django.shortcuts import render_to_response
 from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
@@ -48,7 +47,7 @@ def index(request):
 
 @login_required
 def home(request):
-    credential = utils.get_user_credential(request.user)
+    credential = Credential.objects.get_for_user(request.user)
     if credential is None or credential.invalid == True:
         settings.FLOW.params['state'] = xsrfutil.generate_token(settings.SECRET_KEY, request.user)
         authorize_url = settings.FLOW.step1_get_authorize_url()
@@ -56,8 +55,9 @@ def home(request):
     else:
         mail_box = MiliBox.objects.get(user=request.user)
         contacts = get_contacts_for_user(request.user)
+        Contact.objects.filter(user=request.user).delete()
         for contact in contacts:
-            con=Contact.objects.create(user=request.user,name=contact.nickname,image_link=contact.GetPhotoLink())
+            con=Contact.objects.create(user=request.user,provider_id=contact.id.text.split('/')[-1],name=contact.nickname,image_link=contact.GetPhotoLink())
             for email in contact.email:
                 ContactEmail.objects.create(contact=con,email=email.address)
     return render(request, "home.html", locals())

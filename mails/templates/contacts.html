@@ -1,0 +1,11 @@
+{% for contact in contacts %}
+	{% if contact.name %}
+		{{contact.name}}<br/>
+		{{contact.image_link}}<br/>
+	{% else %}
+		{% for contact_email in contact.contactemail_set.all %}
+			{{contact_email}}<br/>
+		{% endfor %}
+	{% endif %}
+	
+{% endfor %}

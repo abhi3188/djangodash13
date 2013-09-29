@@ -22,6 +22,7 @@ def get_contacts_for_user(user):
 
 class Contact(models.Model):
     user = models.ForeignKey(User)
+    provider_id = models.CharField(max_length=200)
     name = models.CharField(max_length=200,null=True,blank=True)
     image_link = models.CharField(max_length=250,null=True,blank=True)
 

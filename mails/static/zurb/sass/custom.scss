@@ -332,6 +332,10 @@ textarea {
             margin-bottom: 0;
             padding: 22px 0px 0px 10px;
             
+            li.pic  {
+                margin-left: 1em;
+            }
+            
             .people_pic{
                 position: relative;
                 img {
@@ -379,11 +383,12 @@ textarea {
             
             
             .link_text {
-                h4 {
-                    font-size:emCalc(16);
-                    @include ellipsis();
-                    line-height: 250%;
-                }
+                font-size:emCalc(14);
+                @include ellipsis();
+                line-height: 3.5em;
+                font-weight: bold;
+                float: none;
+                padding-left:15px;
             }
         }
     }
