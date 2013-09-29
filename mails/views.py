@@ -41,7 +41,7 @@ def inbox(request, provider_id):
     inbox_tab = request.GET.get('type', 'family')
     tab_options = {'family': 1, 'friends': 2, 'work': 3, 'others': 4}
     inbox_tab_number = inbox_tab in  tab_options and tab_options[inbox_tab] or tab_options['family']
-    
+
     contacts = request.user.contact_set.filter(contact_type=inbox_tab_number)
     selected = provider_id and contacts.get(provider_id=provider_id) or contacts.exists() and contacts.all()[0] or None
     messages = selected and request.user.milibox_set.all()[0].messages.filter(contactmessage__contact=selected).order_by('-id') or []
@@ -69,7 +69,7 @@ def compose(request, provider_id):
             return HttpResponseRedirect('/')
         else:
             form = SendMailForm({'to_message':email})
-    
+
     selected = provider_id and contacts.get(provider_id=provider_id) or contacts.exists() and contacts.all()[0] or None
     contacts = contacts.all()
     return render(request, "compose.html", locals())
@@ -109,14 +109,16 @@ def home(request):
         return HttpResponseRedirect(authorize_url)
     else:
         mail_box = MiliBox.objects.get(user=request.user)
+        '''
         contacts = get_contacts_for_user(request.user)
         if contacts and not Contact.objects.filter(user=request.user).exists():
             for contact in contacts:
                 con=Contact.objects.create(user=request.user,provider_id=contact.id.text.split('/')[-1],name=contact.nickname,image_link=contact.GetPhotoLink())
                 for email in contact.email:
                     ContactEmail.objects.create(contact=con,email=email.address)
+        '''
         mail_box.get_new_mail()
-    return render(request, "home.html", locals())
+        return HttpResponseRedirect('/mails/categorize')
 
 @login_required
 def auth_return(request):
