@@ -533,3 +533,40 @@ textarea {
 .th.thumbnail_custom.unseen:hover {
   border: 2px solid #1e836d;
 }
+
+/* line 553, ../sass/custom.scss */
+.no_margin {
+  margin-bottom: 0;
+}
+
+/* line 557, ../sass/custom.scss */
+.rule {
+  color: #27ad90;
+  font-size: emCalc(20);
+  font-weight: 300;
+  margin-bottom: 2em;
+}
+
+/* line 564, ../sass/custom.scss */
+.categorize_contacts {
+  width: 100%;
+}
+/* line 567, ../sass/custom.scss */
+.categorize_contacts thead {
+  font-size: emCalc(18);
+}
+/* line 571, ../sass/custom.scss */
+.categorize_contacts td {
+  text-align: left;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+/* line 576, ../sass/custom.scss */
+.categorize_contacts td form {
+  margin-bottom: 0;
+}
+
+/* line 582, ../sass/custom.scss */
+table tr:nth-of-type(even) {
+  background: #e9f6f3;
+}

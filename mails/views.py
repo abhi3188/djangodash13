@@ -20,6 +20,9 @@ from contacts.models import get_contacts_for_user,Contact,ContactEmail, ContactM
 def sign_in(request):
     return render(request, "sign_in.html", RequestContext(request))
 
+def categorize(request):
+    return render(request, "categorize.html")
+
 @login_required
 def inbox(request, provider_id):
     name_style="inbox"
@@ -56,7 +59,6 @@ def compose(request, provider_id):
             message.send()
             return HttpResponseRedirect('/')
         else:
-            #raise Exception (request.method)
             form = SendMailForm({'to_message':email})
     selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
     contacts = contacts.all()
