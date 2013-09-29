@@ -10,6 +10,7 @@ from django.template import RequestContext
 
 from oauth2client import xsrfutil
 from oauth2client.django_orm import Storage
+from django_mailbox.models import MessageAttachment
 
 import utils
 from .models import MiliBox, Credential
@@ -28,14 +29,15 @@ def inbox(request, provider_id):
 
 @login_required
 def compose(request, provider_id):
-    contacts = request.user.contact_set
+    contacts = request.user.contact_set.all()
     selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
-    contacts = contacts.all()
     return render(request, "compose.html", locals())
 
+@login_required
 def attachments(request, provider_id):
     contacts = request.user.contact_set.all()
     selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
+    documents = MessageAttachment.objects.filter(message__mailbox__milibox__user=request.user)
     return render(request, "attachments.html")
 
 def index(request):
