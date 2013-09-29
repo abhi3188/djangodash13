@@ -7,27 +7,19 @@ from django.shortcuts import render_to_response
 from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
-
-
 from oauth2client import xsrfutil
-
 from .forms import SendMailForm
 from .models import Credential
-<<<<<<< HEAD
-
 from django.template import RequestContext
+from contacts.models import get_contacts_for_user,Contact,ContactEmail
+from oauth2client.django_orm import Storage
+import utils
 
 def sign_in(request):
     return render(request, "sign_in.html", RequestContext(request))
 
 def inbox(request):
     return render(request, "inbox.html", RequestContext(request))
-=======
-from contacts.models import get_contacts_for_user
-from oauth2client.django_orm import Storage
-
-import utils
->>>>>>> 75cecb117d1e2eef8d1d6127503ead59a04171bb
 
 def index(request):
     if request.method == 'POST':
@@ -53,7 +45,11 @@ def home(request):
         return HttpResponseRedirect(authorize_url)
     else:
         contacts = get_contacts_for_user(request.user)
-        return render(request, "home.html", locals())
+        for contact in contacts:
+            con=Contact.objects.create(user=request.user,name=contact.nickname,image_link=contact.GetPhotoLink())
+            for email in contact.email:
+                ContactEmail.objects.create(contact=con,email=email.address)
+    return render(request, "home.html", locals())
 
 @login_required
 def auth_return(request):
