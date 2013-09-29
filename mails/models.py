@@ -26,10 +26,9 @@ class GmailTransport(object):
         if inbox[0]:
             for key in inbox[0].split():
                 try:
-                    for i in xrange(1000):
-                        typ, msg_contents = self.server.fetch(key, '(RFC822)')
-                        message = email.message_from_string(msg_contents[0][1])
-                        yield message
+                    typ, msg_contents = self.server.fetch(key, '(RFC822)')
+                    message = email.message_from_string(msg_contents[0][1])
+                    yield message
                 except email.Errors.MessageParseError:
                         continue
 
