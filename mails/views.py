@@ -31,6 +31,17 @@ def compose(request, provider_id):
     contacts = request.user.contact_set
     if provider_id:
         selected = contacts.get(provider_id=provider_id)
+        email = ContactEmail.objects.get(contact__provider_id=provider_id)
+        if request.method == 'POST':
+            form = SendMailForm(request.POST,request.FILES)
+            if form.is_valid():
+                upload_file = request.FILES['upload']
+                message=EmailMessage(request.POST.get('subject'),request.POST.get('message'),request.POST.get('from_message'),[request.POST.get('to_message')],headers={'Reply-to':request.POST.get('from_message')})
+                message.attach(upload_file.name,upload_file.read(),upload_file.content_type)
+                message.send()
+                return HttpResponseRedirect('/')
+        else:
+            form = SendMailForm({'to_message':email})
     contacts = contacts.all()
     return render(request, "compose.html", locals())
 
