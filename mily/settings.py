@@ -163,6 +163,8 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.google',
     'mails',
     'contacts',
+    'django_mailbox',
+
 
 )
 

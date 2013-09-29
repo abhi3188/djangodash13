@@ -13,7 +13,7 @@ from .models import Credential
 from django.template import RequestContext
 from contacts.models import get_contacts_for_user,Contact,ContactEmail
 from oauth2client.django_orm import Storage
-import utils
+
 
 def sign_in(request):
     return render(request, "sign_in.html", RequestContext(request))
@@ -21,6 +21,9 @@ def sign_in(request):
 def inbox(request):
     return render(request, "inbox.html", RequestContext(request))
 
+def compose(request):
+    return render(request, "compose.html")
+    
 def index(request):
     if request.method == 'POST':
         form = SendMailForm(request.POST,request.FILES)
@@ -44,6 +47,7 @@ def home(request):
         authorize_url = settings.FLOW.step1_get_authorize_url()
         return HttpResponseRedirect(authorize_url)
     else:
+#        mails = get_mails_for_user(request.user)
         contacts = get_contacts_for_user(request.user)
         for contact in contacts:
             con=Contact.objects.create(user=request.user,name=contact.nickname,image_link=contact.GetPhotoLink())

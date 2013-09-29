@@ -1,9 +1,8 @@
 @import "compass";
 
 $small-scr:emCalc(768);
-$imly_orange: #f05a28;
-$imly_light_orange: #ff7752;
-$imly_dark_orange: #782d14;
+$mily_green: #27ad90;
+$mily_light_orange: #ff7752;
 $white: #ffffff;
 $black: #000;
 $dark_gray_2: #222;
@@ -20,6 +19,29 @@ $facebook_blue : #3b5998;
 $twitter_blue: #4099ff;
 $rss_orange: #ff6600;
 $google_red: #d54937;
+
+// CUSTOM MIXINS
+
+@mixin centered_ul{
+  text-align: center;
+  li{
+    float: none;
+    display: inline-block;
+  }
+}
+
+@mixin custom_box_shadow($horoff, $veroff, $blur, $spread, $color){
+  -moz-box-shadow: $horoff $veroff $blur $spread $color;
+  -webkit-box-shadow: $horoff $veroff $blur $spread $color;
+  box-shadow: $horoff $veroff $blur $spread $color;
+}
+
+@mixin custom_inset_box_shadow($horoff, $veroff, $blur, $spread, $color){
+  -moz-box-shadow: inset $horoff $veroff $blur $spread $color;
+  -webkit-box-shadow: inset $horoff $veroff $blur $spread $color;
+  box-shadow: inset $horoff $veroff $blur $spread $color;
+}
+
 
 // MAKING FOOTER STICK TO THE BOTTOM
 
@@ -43,7 +65,7 @@ html,body
 // CUSTOM GENERIC GLOBAL CLASSES
 
 ::selection {
-  background: #f16a3d;
+  background: darken($mily_green, 10%);
   color: #fff;
   text-shadow:none;
 }
@@ -66,21 +88,36 @@ html,body
   max-width: 1280px;
 }
 
+.row_with_padding {
+    padding: 5px;
+}
+
 .text-center{
   text-align: center;
+}
+
+.text-right {
+    text-align: right;
 }
 
 .white {
   color: $white;
 }
 
-.orange {
-  color: $imly_orange;
+.green {
+  color: $mily_green;
 }
 
 .column_no_padding {
   padding-left: 0;
   padding-right: 0;
+  background: $dark_gray_3;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  
 }
 
 .column_left_border {
@@ -90,7 +127,7 @@ html,body
 
 ul.errorlist > li {
   list-style: none;
-  color: $imly_light_orange;
+  color: $mily_light_orange;
 }
 
 .button {
@@ -100,10 +137,10 @@ ul.errorlist > li {
 }
 
 .custom_button {
-  background: $imly_orange;
-  border-color: darken($imly_orange,10%);
+  background: $mily_green;
+  border-color: darken($mily_green,10%);
   &:hover {
-    background: darken($imly_orange,10%);
+    background: darken($mily_green,10%);
   }
 }
 
@@ -145,4 +182,237 @@ textarea {
 
 .landing_page {
     padding-top: 5%;
+}
+
+.arrow-left {
+    width: 0; 
+    height: 0; 
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent; 
+    border-right:15px solid $mily_green; 
+}
+// SELECT MAIN AREAS LINK
+
+
+.row .mail_side_nav_link{
+  border-bottom: 1px solid $light_gray_e;
+  margin-right:0;
+  padding-left:5%;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  cursor: pointer;
+  height: 100px;
+
+
+  ul.inline-list{
+    margin-bottom: 0;  
+  }
+  
+  ul.link_list{
+    li.link_text{
+      color: $white;
+      text-align: center;
+      font-weight: 200;
+      font-size: emCalc(14);
+      @include ellipsis();
+    }
+  }
+  
+  ul.no-bullet {
+    margin-left: 0.5em;
+  }
+  
+  h1{
+    margin-top:0;
+    margin-bottom: 0;
+    text-align: center;
+    i{
+        color: $black;
+    }
+  }
+  
+  small{
+    font-size:65%;
+    color:$light_gray_9;
+    text-transform: uppercase;
+  }
+  
+  &:hover {
+    background: $dark_gray_2;
+    @include custom_inset_box_shadow(25px, 0px, 0px, -5px, $mily_green);
+    i{
+      color:$mily_green;
+    }
+  }
+}
+
+.row .active{
+  background: $mily_green;
+  cursor: default;
+  @include custom_inset_box_shadow(25px, 0px, 0px, -5px, darken($mily_green, 20%));
+  
+
+  
+  ul.link_list{
+    li.link_text{
+      color: $black;
+    }
+  }
+  
+    h1{
+        color:$white;
+        i {
+           color:$white; 
+        }
+      }
+  
+  small{
+    color:$dark_gray_3;
+  }
+  
+  &:hover{
+    background: $mily_green;
+    color:$black;
+    @include custom_inset_box_shadow(25px, 0px, 0px, -5px, darken($mily_green, 20%));
+    i{
+      color:$white;
+    }
+    
+    small{
+      color:$dark_gray_3;
+    }
+  }
+}
+
+// PEOPLE LIST
+.main_content {
+    
+    .people_list {
+        
+        .no-bullet {
+            margin: 0;
+        }
+        
+        .people_link {
+            height: 100px;
+            border-bottom: 1px solid $light_gray_c;
+            position: relative;
+            
+            
+            .selected_person{
+                position: absolute;
+                right:0;
+                top: 33%;
+                margin-top: auto;
+                margin-bottom: auto;
+                
+                
+            }
+            
+            &:hover{
+                background: $light_gray_f;
+                cursor: pointer;
+            }
+        }
+        
+        .people_link.selected{
+            &:hover{
+                background: $white;
+                cursor: default;
+            }
+        }
+        
+        
+        ul.link_list {
+            margin-bottom: 0;
+            padding: 22px 0px 0px 10px;
+            
+            .people_pic{
+                position: relative;
+                img {
+                    width: 50;
+                }
+                
+                .img_rounded{
+                    border-radius: 50%;
+                    border:3px solid $light_gray_c;
+                }
+                
+                .people_pic_unread{
+                    position: absolute;
+                    top:0;
+                    left: 0;
+                    z-index:50;
+                    width:100%;
+                    height: 100%;
+                    color:$white;
+                    background: rgba(0,0,0,.5);
+                    text-align: center;
+                    border-radius: 50%;
+                    border:3px solid $mily_green;
+                    
+                    .unread_msg_number{
+                        line-height: 250%;
+                        margin: 0;
+                    }
+                }
+            }
+            
+            
+            .link_text {
+                h4 {
+                    font-size:emCalc(16);
+                    @include ellipsis();
+                    line-height: 250%;
+                }
+            }
+        }
+    }
+    
+    
+    .content_pane {
+        border-left: 1px solid $light_gray_c;
+        font-size: emCalc(14);
+        
+        .received_msg, .sent_msg{
+            border:2px solid $light_gray_c;
+            
+            .msg_text {
+                padding:10px;
+                line-height: 1.4em;
+            }
+            
+            .action_btns{
+                
+                div{
+                    border-top:1px solid $light_gray_c;
+                    border-right: 1px solid $light_gray_c;
+                    font-size: emCalc(14);
+                    padding-top:3px;
+                    padding-bottom: 3px;
+                    cursor: pointer;
+                    i{
+                        font-size: emCalc(16);
+                        color:$mily_green;
+                    }
+                    
+                    &:last-child {
+                        border-right: none;
+                    }
+                    
+                    &:hover{
+                        background: $light_gray_f;
+                        i{
+                            color: $google_red;    
+                        }
+                    }
+                }
+            }
+        }
+        
+        .received_msg {
+            border: 2px solid $mily_green;
+        }
+        
+    }  
 }
