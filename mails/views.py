@@ -96,6 +96,7 @@ def index(request):
 
 @login_required
 def home(request):
+    
     credential = Credential.objects.get_for_user(request.user)
     if credential is None or credential.invalid == True:
         settings.FLOW.params['state'] = xsrfutil.generate_token(settings.SECRET_KEY, request.user)
@@ -104,7 +105,7 @@ def home(request):
     else:
         mail_box = MiliBox.objects.get(user=request.user)
         contacts = get_contacts_for_user(request.user)
-        if not contacts:
+        if contacts and not Contact.objects.filter(user=request.user).exists():
             for contact in contacts:
                 con=Contact.objects.create(user=request.user,provider_id=contact.id.text.split('/')[-1],name=contact.nickname,image_link=contact.GetPhotoLink())
                 for email in contact.email:
