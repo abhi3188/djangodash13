@@ -24,6 +24,9 @@ def sign_in(request):
 def inbox(request):
     return render(request, "inbox.html", RequestContext(request))
 
+def compose(request):
+    return render(request, "compose.html")
+    
 from contacts.models import get_contacts_for_user
 from oauth2client.django_orm import Storage
 
