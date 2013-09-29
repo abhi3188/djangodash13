@@ -1,8 +1,7 @@
 {% extends "base_app.html" %}
 
 {% block left_content %}
-{% include "side_nav.html" %}
-
+    {% include "side_nav.html" %}
 {% endblock left_content %}
 
 {% block right_content %}
@@ -18,6 +17,9 @@
                                         <li>
                                             <div class="people_pic">
                                                 <img src="{{ STATIC_URL }}images/abhishek_singh.jpg" width="50" class="img_rounded">
+                                                <div class="people_category">
+                                                    <i class="fi-heart"></i>
+                                                </div>
                                                 <div class="people_pic_unread">
                                                     <p class="unread_msg_number">2</p>
                                                 </div>
@@ -38,8 +40,11 @@
                                         <li>
                                             <div class="people_pic">
                                                 <img src="{{ STATIC_URL }}images/abhishek_singh.jpg" width="50" class="img_rounded">
+                                                <div class="people_category">
+                                                    <i class="fi-star"></i>
+                                                </div>
                                                 <div class="people_pic_unread">
-                                                    <p class="unread_msg_number">1</p>
+                                                    <p class="unread_msg_number">2</p>
                                                 </div>
                                             </div>
                                         </li>
@@ -57,6 +62,9 @@
                                         <li>
                                             <div class="people_pic">
                                                 <img src="{{ STATIC_URL }}images/abhishek_singh.jpg" width="50" class="img_rounded">
+                                                <div class="people_category">
+                                                    <i class="fi-shopping-bag"></i>
+                                                </div>
                                                 <div>
                                                     
                                                 </div>
@@ -77,73 +85,65 @@
         </div>
         
         <div class="medium-7 large-9 columns content_pane">
-            <div class="row row_with_padding">
-                <div class="medium-6 large-6 columns">
-                    <div class="row received_msg">
-                        <div class="medium-12 large-12 columns msg_text">
-                            Lorem Ipsum Dolor Somet. This is some message text which i have received
-                        </div>
-                        <div class="medium-12 large-12 columns">
-                            <div class="row action_btns">
-                                <div class="medium-4 large-4 columns text-center">
-                                    <i class="fi-arrow-left"></i> Reply
-                                </div>
-                                <div class="medium-4 large-4 columns text-center">
-                                    <i class="fi-arrow-left"></i><i class="fi-arrow-left"></i> Reply All
-                                </div>
-                                <div class="medium-4 large-4 columns text-center">
-                                    <i class="fi-arrow-right"></i> Forward
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="medium-12 large-12 columns date_time">
-                            <small class="muted">Received 24 July 2013 6:45 pm</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="medium-6 large-6 columns">
-                    
-                </div>
-            </div>
-            
-            <div class="row row_with_padding">
-                <div class="medium-6 large-6 columns">
-                    
-                </div>
-                <div class="medium-6 large-6 columns">
-                    <div class="row sent_msg">
-                        <div class="medium-12 large-12 columns msg_text">
-                            Lorem Ipsum Dolor Somet. This is some message text which i have sent to the receiver. It is very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very
-                             very very very very very very very very very very very very very very very very very very very very very very very very very
-                              very very very very very very very very very very very very very very very long.
-                        </div>
-                        <div class="medium-12 large-12 columns">
-                            <div class="row action_btns">
-                                <div class="medium-4 large-4 columns text-center">
-                                    <i class="fi-arrow-left"></i> Reply
-                                </div>
-                                <div class="medium-4 large-4 columns text-center">
-                                    <i class="fi-arrow-left"></i><i class="fi-arrow-left"></i> Reply All
-                                </div>
-                                <div class="medium-4 large-4 columns text-center">
-                                    <i class="fi-arrow-right"></i> Forward
-                                </div>
+            <div class="attachments">
+                <ul class="small-block-grid-2 large-block-grid-4">
+                    <li>
+                        <div class="th thumbnail_custom unseen">
+                            <a href="#"><img src="{{ STATIC_URL }}images/bisc.jpg"></a>
+                            <div class="info_wrapper">
+                                <h5><a href="#">Name of attach</a></h5>
+                                <h6>IMAGE</h6>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="medium-12 large-12 columns date_time text-right">
-                            <small class="muted">Sent 23 July 2013 5:45 pm</small>
+                    </li>
+                    <li>
+                        <div class="th thumbnail_custom">
+                            <a href="#"><img src="{{ STATIC_URL }}images/abhishek_singh.jpg"></a>
+                            <div class="info_wrapper">
+                                <h5><a href="#">Name of attach</a></h5>
+                                <h6>PDF</h6>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
+                    </li>
+                    <li>
+                        <div class="th thumbnail_custom">
+                            <a href="#"><img src="{{ STATIC_URL }}images/mily_logo.png"></a>
+                            <div class="info_wrapper">
+                                <h5><a href="#">Name of attach</a></h5>
+                                <h6>DOC</h6>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="th thumbnail_custom">
+                            <a href="#"><img src="{{ STATIC_URL }}images/500.png"></a>
+                            <div class="info_wrapper">
+                                <h5><a href="#">Name of attach</a></h5>
+                                <h6>IMAGE</h6>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="th thumbnail_custom">
+                            <a href="#"><img src="{{ STATIC_URL }}images/abhishek_singh.jpg"></a>
+                            <div class="info_wrapper">
+                                <h5><a href="#">Name of attach</a></h5>
+                                <h6>PDF</h6>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="th thumbnail_custom">
+                            <a href="#"><img src="{{ STATIC_URL }}images/bisc.jpg"></a>
+                            <div class="info_wrapper">
+                                <h5><a href="#">Name of attach</a></h5>
+                                <h6>IMAGE</h6>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </div> 
-        
+        </div>     
     </div>
 
 {% endblock right_content %}

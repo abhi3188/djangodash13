@@ -156,13 +156,15 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-   # 'south',
+    'south',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'mails',
+    'contacts',
     'django_mailbox',
+
 
 )
 

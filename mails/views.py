@@ -7,16 +7,13 @@ from django.shortcuts import render_to_response
 from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
-
-
 from oauth2client import xsrfutil
-
 from .forms import SendMailForm
 from .models import Credential
-from contacts.models import get_contacts_for_user
-import utils
-
 from django.template import RequestContext
+from contacts.models import get_contacts_for_user,Contact,ContactEmail
+from oauth2client.django_orm import Storage
+
 
 def sign_in(request):
     return render(request, "sign_in.html", RequestContext(request))
@@ -29,6 +26,12 @@ from oauth2client.django_orm import Storage
 
 import utils
 from .models import MiliBox
+
+def compose(request):
+    return render(request, "compose.html")
+
+def attachments(request):
+    return render(request, "attachments.html")
 
 def index(request):
     if request.method == 'POST':
@@ -55,7 +58,11 @@ def home(request):
     else:
         mail_box = MiliBox.objects.get(user=request.user)
         contacts = get_contacts_for_user(request.user)
-        return render(request, "home.html", locals())
+        for contact in contacts:
+            con=Contact.objects.create(user=request.user,name=contact.nickname,image_link=contact.GetPhotoLink())
+            for email in contact.email:
+                ContactEmail.objects.create(contact=con,email=email.address)
+    return render(request, "home.html", locals())
 
 @login_required
 def auth_return(request):
