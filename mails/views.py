@@ -19,7 +19,7 @@ from contacts.models import get_contacts_for_user,Contact,ContactEmail
 def sign_in(request):
     return render(request, "sign_in.html", RequestContext(request))
 
-def inbox(request):
+def inbox(request, provider_id):
     contacts = request.user.contact_set
     if provider_id:
         selected = contacts.get(provider_id=provider_id)
