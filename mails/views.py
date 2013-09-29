@@ -37,17 +37,12 @@ def categorize_type(request,id,type):
 @login_required
 def inbox(request, provider_id):
     name_style="inbox"
-    contacts = request.user.contact_set.all()
-    selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
-    messages = request.user.milibox_set.all()[0].messages.order_by('-id')
-    contacts = []
-    for message in messages:
-        try:
-            contacts.append(message.contactmessage.contact)
-        except ContactMessage.DoesNotExist, Contact.DoesNotExist:
-            pass
-    contacts = set(contacts)
-    messages = request.user.milibox_set.all()[0].messages.filter(contactmessage__contact=selected).order_by('-id')
+    inbox_tab = request.GET.get('type', 'family')
+    tab_options = {'family': 1, 'friends': 2, 'work': 3, 'others': 4}
+    inbox_tab = inbox_tab in  tab_options and tab_options[inbox_tab] or tab_options['family']
+    contacts = request.user.contact_set.filter(contact_type=inbox_tab)
+    selected = provider_id and contacts.get(provider_id=provider_id) or contacts.exists() and contacts.all()[0] or None
+    messages = selected and request.user.milibox_set.all()[0].messages.filter(contactmessage__contact=selected).order_by('-id') or []
     return render(request, "inbox.html", locals())
 
 @login_required
@@ -71,7 +66,7 @@ def compose(request, provider_id):
             return HttpResponseRedirect('/')
         else:
             form = SendMailForm({'to_message':email})
-    selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
+    selected = provider_id and contacts.get(provider_id=provider_id) or contacts.exists() and contacts.all()[0] or None
     contacts = contacts.all()
     return render(request, "compose.html", locals())
 
@@ -79,7 +74,7 @@ def compose(request, provider_id):
 def attachments(request, provider_id):
     name_style="attachments"
     contacts = request.user.contact_set.all()
-    selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
+    selected = provider_id and contacts.get(provider_id=provider_id) or contacts.exists() and contacts.all()[0] or None
     documents = MessageAttachment.objects.filter(message__mailbox__milibox__user=request.user, message__contactmessage__contact=selected).order_by('-id')
     return render(request, "attachments.html", locals())
 
