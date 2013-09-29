@@ -410,3 +410,7 @@ textarea {
 .main_content .content_pane .attach_send .button {
   font-size: 1.3em;
 }
+/* line 447, ../sass/custom.scss */
+.main_content .content_pane .compose_msg {
+  padding-top: 10%;
+}
