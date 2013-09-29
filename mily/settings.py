@@ -11,6 +11,9 @@ TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
+    ("Pavan Mishra", "pavanmishra@gmail.com"),
+    ('Tech Team', 'tech@imly.in'),
+    ('Manish Kansara', 'manish@imly.in'),
 )
 
 LOGIN_REDIRECT_URL = "/"
@@ -38,7 +41,7 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['beta.imly.in',54.234.162.251]
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -175,7 +178,8 @@ SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 # the site admins on every HTTP 500 error when DEBUG=False.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
-LOGGING = {
+if not DEBUG:
+    LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'filters': {
@@ -188,7 +192,11 @@ LOGGING = {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
-        }
+        },
+        'logfile':{
+            'class': 'logging.handlers.WatchedFileHandler',
+            'filename': '/var/log/django/error.log'
+        },
     },
     'loggers': {
         'django.request': {
@@ -196,9 +204,13 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': True,
         },
+        'django':{
+            'handlers': ['logfile'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
     }
 }
-
 
 oauth2callback = 'http://localhost:8000/oauth2callback'
 
