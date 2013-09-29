@@ -21,12 +21,18 @@ def sign_in(request):
 def inbox(request):
     return render(request, "inbox.html", RequestContext(request))
 
+from contacts.models import get_contacts_for_user
+from oauth2client.django_orm import Storage
+
+import utils
+from .models import MiliBox
+
 def compose(request):
     return render(request, "compose.html")
 
 def attachments(request):
     return render(request, "attachments.html")
-    
+
 def index(request):
     if request.method == 'POST':
         form = SendMailForm(request.POST,request.FILES)
@@ -50,7 +56,7 @@ def home(request):
         authorize_url = settings.FLOW.step1_get_authorize_url()
         return HttpResponseRedirect(authorize_url)
     else:
-#        mails = get_mails_for_user(request.user)
+        mail_box = MiliBox.objects.get(user=request.user)
         contacts = get_contacts_for_user(request.user)
         for contact in contacts:
             con=Contact.objects.create(user=request.user,name=contact.nickname,image_link=contact.GetPhotoLink())
@@ -65,5 +71,6 @@ def auth_return(request):
     credential = settings.FLOW.step2_exchange(request.REQUEST)
     storage = Storage(Credential, 'id', request.user, 'credential')
     storage.put(credential)
+    mail_box=MiliBox.objects.create(name="MiliBox", user=request.user)
     return HttpResponseRedirect("/")
 
