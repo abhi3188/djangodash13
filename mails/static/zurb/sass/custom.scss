@@ -2,8 +2,7 @@
 
 $small-scr:emCalc(768);
 $mily_green: #27ad90;
-$imly_light_orange: #ff7752;
-$imly_dark_orange: #782d14;
+$mily_light_orange: #ff7752;
 $white: #ffffff;
 $black: #000;
 $dark_gray_2: #222;
@@ -66,7 +65,7 @@ html,body
 // CUSTOM GENERIC GLOBAL CLASSES
 
 ::selection {
-  background: #f16a3d;
+  background: darken($mily_green, 10%);
   color: #fff;
   text-shadow:none;
 }
@@ -89,8 +88,16 @@ html,body
   max-width: 1280px;
 }
 
+.row_with_padding {
+    padding: 5px;
+}
+
 .text-center{
   text-align: center;
+}
+
+.text-right {
+    text-align: right;
 }
 
 .white {
@@ -120,7 +127,7 @@ html,body
 
 ul.errorlist > li {
   list-style: none;
-  color: $imly_light_orange;
+  color: $mily_light_orange;
 }
 
 .button {
@@ -195,8 +202,7 @@ textarea {
   padding-bottom: 0.5em;
   cursor: pointer;
   height: 100px;
-  //box-shadow:inset 25px 0px 0px -5px $imly_orange;
-  // border-left: 20px solid $imly_orange;
+
 
   ul.inline-list{
     margin-bottom: 0;  
@@ -243,7 +249,7 @@ textarea {
 .row .active{
   background: $mily_green;
   cursor: default;
-  @include custom_inset_box_shadow(25px, 0px, 0px, -5px, $white);
+  @include custom_inset_box_shadow(25px, 0px, 0px, -5px, darken($mily_green, 20%));
   
 
   
@@ -267,7 +273,7 @@ textarea {
   &:hover{
     background: $mily_green;
     color:$black;
-    @include custom_inset_box_shadow(25px, 0px, 0px, -5px, $white);
+    @include custom_inset_box_shadow(25px, 0px, 0px, -5px, darken($mily_green, 20%));
     i{
       color:$white;
     }
@@ -292,12 +298,23 @@ textarea {
             border-bottom: 1px solid $light_gray_c;
             position: relative;
             
+            
             .selected_person{
                 position: absolute;
                 right:0;
                 top: 33%;
                 margin-top: auto;
                 margin-bottom: auto;
+            }
+            
+            &:hover{
+                background: $light_gray_f;
+            }
+        }
+        
+        .people_link.selected{
+            &:hover{
+                background: $white;
             }
         }
         
@@ -351,5 +368,47 @@ textarea {
     
     .content_pane {
         border-left: 1px solid $light_gray_c;
+        font-size: emCalc(14);
+        
+        .received_msg, .sent_msg{
+            border:2px solid $light_gray_c;
+            
+            .msg_text {
+                padding:10px;
+                line-height: 1.4em;
+            }
+            
+            .action_btns{
+                
+                div{
+                    border-top:1px solid $light_gray_c;
+                    border-right: 1px solid $light_gray_c;
+                    font-size: emCalc(14);
+                    padding-top:3px;
+                    padding-bottom: 3px;
+                    cursor: pointer;
+                    i{
+                        font-size: emCalc(16);
+                        color:$mily_green;
+                    }
+                    
+                    &:last-child {
+                        border-right: none;
+                    }
+                    
+                    &:hover{
+                        background: $light_gray_f;
+                        i{
+                            color: $google_red;    
+                        }
+                    }
+                }
+            }
+        }
+        
+        .received_msg {
+            border: 2px solid $mily_green;
+        }
+        
     }  
 }
