@@ -11,18 +11,18 @@ class GmailTransport(object):
 
     def connect(self, user):
         ''' connect using gmails XOAUTH authentication '''
-        credential = Credential.objects.get_for_user(user)
+        credential = user.credential_set.all()[0]
         if not user or not credential: # also if user does not have credentials
             return None
-        self.server = imaplib.IMAP4_SSL('imap.gmail.com')
-        print 'user=%s\1auth=Bearer %s\1\1' % (user.email, credential.access_token)
+        self.server = imaplib.IMAP4_SSL('imap.googlemail.com')
+        print 'user=%s\1auth=Bearer %s\1\1' % (user.email, credential.credential.access_token)
         self.server.authenticate('XOAUTH2',
-                          lambda x : 'user=%s\1auth=Bearer %s\1\1' % (user.email, credential.access_token))
+                          lambda x : 'user=%s\1auth=Bearer %s\1\1' % (user.email, credential.credential.access_token))
         self.server.select()
 
     def get_message(self):
         ''' get messages without deleting on server.'''
-        typ, inbox = self.server.search(None, 'Inbox')
+        typ, inbox = self.server.search(None, 'All')
         if inbox[0]:
             for key in inbox[0].split():
                 try:

@@ -10,4 +10,10 @@
     <li><ul>{% for email in contact.email %}<li>{{ email.address }}</li>{% endfor %}</ul></li>
 {% endfor %}
 </ul>
+<h2> Messages for Design </h2>
+<ul>
+{% for message in mail_box.messages.all %}
+    <li>{{ message.subject }}</li>
+{% endfor %}
+</ul>
 {% endblock main_content %}

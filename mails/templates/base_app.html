@@ -59,7 +59,14 @@
     '.js><\/script>')
     </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
+    <script>
+        $(document).ready(function(){
+            var window_height = $(window).height();
+            $(".main_content").css("height",window_height);
+            $(".people_list").css("height", window_height);
+            $(".content_pane").css("height", window_height);
+        });
+    </script>
     
     {% block extra_javascript %}
 

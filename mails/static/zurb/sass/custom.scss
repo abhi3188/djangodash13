@@ -187,9 +187,9 @@ textarea {
 .arrow-left {
     width: 0; 
     height: 0; 
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent; 
-    border-right:15px solid $mily_green; 
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent; 
+    border-right:10px solid $mily_green; 
 }
 // SELECT MAIN AREAS LINK
 
@@ -286,8 +286,11 @@ textarea {
 
 // PEOPLE LIST
 .main_content {
+    overflow: hidden;
+    
     
     .people_list {
+        overflow-y: auto;
         
         .no-bullet {
             margin: 0;
@@ -302,7 +305,7 @@ textarea {
             .selected_person{
                 position: absolute;
                 right:0;
-                top: 33%;
+                top: 37%;
                 margin-top: auto;
                 margin-bottom: auto;
                 
@@ -316,6 +319,8 @@ textarea {
         }
         
         .people_link.selected{
+            
+            border-right: 10px solid $mily_green;
             &:hover{
                 background: $white;
                 cursor: default;
@@ -356,6 +361,20 @@ textarea {
                         margin: 0;
                     }
                 }
+                
+                .people_category {
+                    position: absolute;
+                    right:-2px;
+                    bottom:-6px;
+                    z-index:70;
+                    
+                    i{
+                        font-size: emCalc(18);
+                        color:$mily_green;
+                        text-shadow: 0px 0px 2px $black;
+                        -webkit-text-stroke: 1px $white;
+                    }
+                }
             }
             
             
@@ -373,6 +392,7 @@ textarea {
     .content_pane {
         border-left: 1px solid $light_gray_c;
         font-size: emCalc(14);
+        overflow-y: auto;
         
         .received_msg, .sent_msg{
             border:2px solid $light_gray_c;
@@ -414,5 +434,113 @@ textarea {
             border: 2px solid $mily_green;
         }
         
+        .row.collapse {
+            .prefix{
+                font-size:1.5em;
+            }
+            
+            input {
+                font-size: 1.5em;
+            }
+        }
+        
+        .attach_send {
+            .button{
+                font-size: 1.3em;
+            }
+        }
+        
+        .compose_msg {
+            padding-top: 10%;
+        }
+        
+        .attachments {
+            padding-top: 15px;
+        }
     }  
+}
+
+//THUMBNAILS
+
+.th {
+display: inherit;
+}
+
+.th.thumbnail_custom{
+  border:1px solid $light_gray_c;
+  border-radius: 0px 0px 5px 5px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  text-align: center;
+  
+  
+  ul.no-bullet {
+    margin-bottom: 0;
+  }
+  
+  
+  h5{
+    font-size:emCalc(17);
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 0;
+    margin-top:0.3em;
+    @include ellipsis();
+    padding-left:3px;
+    padding-right: 3px;
+    a{
+      color:$dark_gray_3;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  h6{
+    text-align: center;
+    font-size:emCalc(12);
+    font-weight: normal;
+    color:$light_gray_9;
+    margin-bottom: 0;
+    margin-top:0.2em;
+    @include ellipsis();
+    padding-left:3px;
+    padding-right: 3px;
+    a{
+      color:$light_gray_9;
+      &:hover{
+        color: $mily_green;
+      }
+    }
+  }
+  
+  
+  .info_wrapper{
+    padding:3px;
+    
+    p {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    
+    .button {
+      margin-bottom: 0;
+      font-weight: normal;
+      font-size: emCalc(13);
+      text-shadow: 0px 0px 1px $light_gray_9;
+    }
+  }
+  
+  &:hover{
+    box-shadow: none;
+    border-color: $light_gray_9;
+  }
+}
+
+.th.thumbnail_custom.unseen {
+    border: 2px solid $mily_green;
+    
+    &:hover {
+        border: 2px solid darken($mily_green, 10%);
+    }
 }
