@@ -8362,3 +8362,15 @@ textarea {
 .main_content .content_pane .received_msg {
   border: 2px solid #27ad90;
 }
+/* line 432, ../sass/custom.scss */
+.main_content .content_pane .row.collapse .prefix {
+  font-size: 1.5em;
+}
+/* line 436, ../sass/custom.scss */
+.main_content .content_pane .row.collapse input {
+  font-size: 1.5em;
+}
+/* line 442, ../sass/custom.scss */
+.main_content .content_pane .attach_send .button {
+  font-size: 1.3em;
+}

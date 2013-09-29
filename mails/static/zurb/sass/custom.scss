@@ -428,5 +428,21 @@ textarea {
             border: 2px solid $mily_green;
         }
         
+        .row.collapse {
+            .prefix{
+                font-size:1.5em;
+            }
+            
+            input {
+                font-size: 1.5em;
+            }
+        }
+        
+        .attach_send {
+            .button{
+                font-size: 1.3em;
+            }
+        }
+        
     }  
 }
