@@ -8,7 +8,8 @@
 {% block right_content %} 
         {% include "people_list.html" %}
         <div class="medium-7 large-9 columns content_pane">
-            <form enctype="multipart/form-data" method="post" action="." >
+            <form enctype="multipart/form-data" method='post' action="" >
+            {% csrf_token %}
                 <div class="compose_msg">
                     <div class="row row_with_padding">
                         <div class="small-9 small-centered large-6 large-centered columns">
