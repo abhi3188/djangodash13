@@ -38,11 +38,12 @@ def compose(request, provider_id):
             form = SendMailForm(request.POST,request.FILES)
             if form.is_valid():
                 upload_file = request.FILES['upload']
-                message=EmailMessage(request.POST.get('subject'),request.POST.get('message'),request.POST.get('from_message'),[request.POST.get('to_message')],headers={'Reply-to':request.POST.get('from_message')})
+                message=EmailMessage(request.POST.get('subject'),request.POST.get('message'),request.user.email,[request.POST.get('to_message')])
                 message.attach(upload_file.name,upload_file.read(),upload_file.content_type)
                 message.send()
                 return HttpResponseRedirect('/')
         else:
+            #raise Exception (request.method)
             form = SendMailForm({'to_message':email})
 
     selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
