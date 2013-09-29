@@ -108,7 +108,7 @@ def home(request):
         authorize_url = settings.FLOW.step1_get_authorize_url()
         return HttpResponseRedirect(authorize_url)
     else:
-        mail_box = MiliBox.objects.get(user=request.user)
+        #mail_box = MiliBox.objects.get(user=request.user)
         '''
         contacts = get_contacts_for_user(request.user)
         if contacts and not Contact.objects.filter(user=request.user).exists():
@@ -117,8 +117,8 @@ def home(request):
                 for email in contact.email:
                     ContactEmail.objects.create(contact=con,email=email.address)
         '''
-        mail_box.get_new_mail()
-        return HttpResponseRedirect('/mails/categorize')
+        #mail_box.get_new_mail()
+        #return HttpResponseRedirect('/mails/categorize')
 
 @login_required
 def auth_return(request):
