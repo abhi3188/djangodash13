@@ -1,4 +1,6 @@
-*.pyc
+**/*.pyc
 *.db
 *.DS_store
 settings.py
+*client_secrets.json
+data.db
