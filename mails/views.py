@@ -10,6 +10,7 @@ from django.template import RequestContext
 
 from oauth2client import xsrfutil
 from oauth2client.django_orm import Storage
+from django_mailbox.models import MessageAttachment
 
 import utils
 from .models import MiliBox, Credential
@@ -24,7 +25,7 @@ def inbox(request, provider_id):
     name_style="inbox"
     contacts = request.user.contact_set.all()
     selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
-    messages = request.user.milibox_set.all()[0].messages.order_by('-id')
+    messages = request.user.milibox_set.all()[0].messages.filter(contactmessage__contact=selected).order_by('-id')
     return render(request, "inbox.html", locals())
 
 @login_required
@@ -32,7 +33,6 @@ def compose(request, provider_id):
     name_style="compose"
     contacts = request.user.contact_set
     if provider_id:
-        #selected = contacts.get(provider_id=provider_id)
         email = ContactEmail.objects.get(contact__provider_id=provider_id)
         if request.method == 'POST':
             if request.FILES:
@@ -49,15 +49,17 @@ def compose(request, provider_id):
             return HttpResponseRedirect('/')
         else:
             form = SendMailForm({'to_message':email})
-
     selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
     contacts = contacts.all()
     return render(request, "compose.html", locals())
 
+@login_required
 def attachments(request, provider_id):
     name_style="attachments"
     contacts = request.user.contact_set.all()
     selected = provider_id and contacts.get(provider_id=provider_id) or contacts.all()[0]
+    documents = MessageAttachment.objects.filter(message__mailbox__milibox__user=request.user, message__contactmessage__contact=selected).order_by('-id')
+    raise Exception(documents)
     return render(request, "attachments.html")
 
 
