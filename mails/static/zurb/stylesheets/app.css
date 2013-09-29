@@ -8125,9 +8125,9 @@ textarea {
 .arrow-left {
   width: 0;
   height: 0;
-  border-top: 15px solid transparent;
-  border-bottom: 15px solid transparent;
-  border-right: 15px solid #27ad90;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #27ad90;
 }
 
 /* line 197, ../sass/custom.scss */
@@ -8251,7 +8251,7 @@ textarea {
 .main_content .people_list .people_link .selected_person {
   position: absolute;
   right: 0;
-  top: 33%;
+  top: 37%;
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -8260,30 +8260,34 @@ textarea {
   background: whitesmoke;
   cursor: pointer;
 }
-/* line 322, ../sass/custom.scss */
+/* line 321, ../sass/custom.scss */
+.main_content .people_list .people_link.selected {
+  border-right: 10px solid #27ad90;
+}
+/* line 324, ../sass/custom.scss */
 .main_content .people_list .people_link.selected:hover {
   background: white;
   cursor: default;
 }
-/* line 329, ../sass/custom.scss */
+/* line 331, ../sass/custom.scss */
 .main_content .people_list ul.link_list {
   margin-bottom: 0;
   padding: 22px 0px 0px 10px;
 }
-/* line 333, ../sass/custom.scss */
+/* line 335, ../sass/custom.scss */
 .main_content .people_list ul.link_list .people_pic {
   position: relative;
 }
-/* line 335, ../sass/custom.scss */
+/* line 337, ../sass/custom.scss */
 .main_content .people_list ul.link_list .people_pic img {
   width: 50;
 }
-/* line 339, ../sass/custom.scss */
+/* line 341, ../sass/custom.scss */
 .main_content .people_list ul.link_list .people_pic .img_rounded {
   border-radius: 50%;
   border: 3px solid #cccccc;
 }
-/* line 344, ../sass/custom.scss */
+/* line 346, ../sass/custom.scss */
 .main_content .people_list ul.link_list .people_pic .people_pic_unread {
   position: absolute;
   top: 0;
@@ -8297,26 +8301,26 @@ textarea {
   border-radius: 50%;
   border: 3px solid #27ad90;
 }
-/* line 357, ../sass/custom.scss */
+/* line 359, ../sass/custom.scss */
 .main_content .people_list ul.link_list .people_pic .people_pic_unread .unread_msg_number {
   line-height: 250%;
   margin: 0;
 }
-/* line 363, ../sass/custom.scss */
+/* line 365, ../sass/custom.scss */
 .main_content .people_list ul.link_list .people_pic .people_category {
   position: absolute;
   right: -2px;
   bottom: -6px;
   z-index: 70;
 }
-/* line 369, ../sass/custom.scss */
+/* line 371, ../sass/custom.scss */
 .main_content .people_list ul.link_list .people_pic .people_category i {
   font-size: 1.125em;
   color: #27ad90;
   text-shadow: 0px 0px 2px black;
   -webkit-text-stroke: 1px white;
 }
-/* line 380, ../sass/custom.scss */
+/* line 382, ../sass/custom.scss */
 .main_content .people_list ul.link_list .link_text h4 {
   font-size: 1em;
   white-space: nowrap;
@@ -8326,22 +8330,22 @@ textarea {
   text-overflow: ellipsis;
   line-height: 250%;
 }
-/* line 390, ../sass/custom.scss */
+/* line 392, ../sass/custom.scss */
 .main_content .content_pane {
   border-left: 1px solid #cccccc;
   font-size: 0.875em;
   overflow-y: auto;
 }
-/* line 395, ../sass/custom.scss */
+/* line 397, ../sass/custom.scss */
 .main_content .content_pane .received_msg, .main_content .content_pane .sent_msg {
   border: 2px solid #cccccc;
 }
-/* line 398, ../sass/custom.scss */
+/* line 400, ../sass/custom.scss */
 .main_content .content_pane .received_msg .msg_text, .main_content .content_pane .sent_msg .msg_text {
   padding: 10px;
   line-height: 1.4em;
 }
-/* line 405, ../sass/custom.scss */
+/* line 407, ../sass/custom.scss */
 .main_content .content_pane .received_msg .action_btns div, .main_content .content_pane .sent_msg .action_btns div {
   border-top: 1px solid #cccccc;
   border-right: 1px solid #cccccc;
@@ -8350,54 +8354,54 @@ textarea {
   padding-bottom: 3px;
   cursor: pointer;
 }
-/* line 412, ../sass/custom.scss */
+/* line 414, ../sass/custom.scss */
 .main_content .content_pane .received_msg .action_btns div i, .main_content .content_pane .sent_msg .action_btns div i {
   font-size: 1em;
   color: #27ad90;
 }
-/* line 417, ../sass/custom.scss */
+/* line 419, ../sass/custom.scss */
 .main_content .content_pane .received_msg .action_btns div:last-child, .main_content .content_pane .sent_msg .action_btns div:last-child {
   border-right: none;
 }
-/* line 421, ../sass/custom.scss */
+/* line 423, ../sass/custom.scss */
 .main_content .content_pane .received_msg .action_btns div:hover, .main_content .content_pane .sent_msg .action_btns div:hover {
   background: whitesmoke;
 }
-/* line 423, ../sass/custom.scss */
+/* line 425, ../sass/custom.scss */
 .main_content .content_pane .received_msg .action_btns div:hover i, .main_content .content_pane .sent_msg .action_btns div:hover i {
   color: #d54937;
 }
-/* line 431, ../sass/custom.scss */
+/* line 433, ../sass/custom.scss */
 .main_content .content_pane .received_msg {
   border: 2px solid #27ad90;
 }
-/* line 436, ../sass/custom.scss */
+/* line 438, ../sass/custom.scss */
 .main_content .content_pane .row.collapse .prefix {
   font-size: 1.5em;
 }
-/* line 440, ../sass/custom.scss */
+/* line 442, ../sass/custom.scss */
 .main_content .content_pane .row.collapse input {
   font-size: 1.5em;
 }
-/* line 446, ../sass/custom.scss */
+/* line 448, ../sass/custom.scss */
 .main_content .content_pane .attach_send .button {
   font-size: 1.3em;
 }
-/* line 451, ../sass/custom.scss */
+/* line 453, ../sass/custom.scss */
 .main_content .content_pane .compose_msg {
   padding-top: 10%;
 }
-/* line 455, ../sass/custom.scss */
+/* line 457, ../sass/custom.scss */
 .main_content .content_pane .attachments {
   padding-top: 15px;
 }
 
-/* line 463, ../sass/custom.scss */
+/* line 465, ../sass/custom.scss */
 .th {
   display: inherit;
 }
 
-/* line 467, ../sass/custom.scss */
+/* line 469, ../sass/custom.scss */
 .th.thumbnail_custom {
   border: 1px solid #cccccc;
   border-radius: 0px 0px 5px 5px;
@@ -8405,11 +8409,11 @@ textarea {
   box-shadow: none;
   text-align: center;
 }
-/* line 475, ../sass/custom.scss */
+/* line 477, ../sass/custom.scss */
 .th.thumbnail_custom ul.no-bullet {
   margin-bottom: 0;
 }
-/* line 480, ../sass/custom.scss */
+/* line 482, ../sass/custom.scss */
 .th.thumbnail_custom h5 {
   font-size: 1.0625em;
   font-weight: 500;
@@ -8424,15 +8428,15 @@ textarea {
   padding-left: 3px;
   padding-right: 3px;
 }
-/* line 489, ../sass/custom.scss */
+/* line 491, ../sass/custom.scss */
 .th.thumbnail_custom h5 a {
   color: #333333;
 }
-/* line 491, ../sass/custom.scss */
+/* line 493, ../sass/custom.scss */
 .th.thumbnail_custom h5 a:hover {
   text-decoration: underline;
 }
-/* line 497, ../sass/custom.scss */
+/* line 499, ../sass/custom.scss */
 .th.thumbnail_custom h6 {
   text-align: center;
   font-size: 0.75em;
@@ -8448,41 +8452,41 @@ textarea {
   padding-left: 3px;
   padding-right: 3px;
 }
-/* line 507, ../sass/custom.scss */
+/* line 509, ../sass/custom.scss */
 .th.thumbnail_custom h6 a {
   color: #999999;
 }
-/* line 509, ../sass/custom.scss */
+/* line 511, ../sass/custom.scss */
 .th.thumbnail_custom h6 a:hover {
   color: #27ad90;
 }
-/* line 516, ../sass/custom.scss */
+/* line 518, ../sass/custom.scss */
 .th.thumbnail_custom .info_wrapper {
   padding: 3px;
 }
-/* line 519, ../sass/custom.scss */
+/* line 521, ../sass/custom.scss */
 .th.thumbnail_custom .info_wrapper p {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 524, ../sass/custom.scss */
+/* line 526, ../sass/custom.scss */
 .th.thumbnail_custom .info_wrapper .button {
   margin-bottom: 0;
   font-weight: normal;
   font-size: 0.8125em;
   text-shadow: 0px 0px 1px #999999;
 }
-/* line 532, ../sass/custom.scss */
+/* line 534, ../sass/custom.scss */
 .th.thumbnail_custom:hover {
   box-shadow: none;
   border-color: #999999;
 }
 
-/* line 538, ../sass/custom.scss */
+/* line 540, ../sass/custom.scss */
 .th.thumbnail_custom.unseen {
   border: 2px solid #27ad90;
 }
-/* line 541, ../sass/custom.scss */
+/* line 543, ../sass/custom.scss */
 .th.thumbnail_custom.unseen:hover {
   border: 2px solid #1e836d;
 }
