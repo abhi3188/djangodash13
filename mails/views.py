@@ -1,19 +1,20 @@
 import logging
 
 # Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render,render_to_response
 from django.http import HttpResponse,HttpResponseRedirect
-from django.shortcuts import render_to_response
 from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
-from oauth2client import xsrfutil
-from .forms import SendMailForm
-from .models import Credential
 from django.template import RequestContext
-from contacts.models import get_contacts_for_user,Contact,ContactEmail
+
+from oauth2client import xsrfutil
 from oauth2client.django_orm import Storage
 
+import utils
+from .models import MiliBox, Credential
+from .forms import SendMailForm
+from contacts.models import get_contacts_for_user,Contact,ContactEmail
 
 def sign_in(request):
     return render(request, "sign_in.html", RequestContext(request))
@@ -21,14 +22,10 @@ def sign_in(request):
 def inbox(request):
     return render(request, "inbox.html", RequestContext(request))
 
-from contacts.models import get_contacts_for_user
-from oauth2client.django_orm import Storage
-
-import utils
-from .models import MiliBox
-
+@login_required
 def compose(request):
-    return render(request, "compose.html")
+    contacts = request.user.contact_set.all()
+    return render(request, "compose.html", locals())
 
 def attachments(request):
     return render(request, "attachments.html")
@@ -50,7 +47,7 @@ def index(request):
 
 @login_required
 def home(request):
-    credential = utils.get_user_credential(request.user)
+    credential = Credential.objects.get_for_user(request.user)
     if credential is None or credential.invalid == True:
         settings.FLOW.params['state'] = xsrfutil.generate_token(settings.SECRET_KEY, request.user)
         authorize_url = settings.FLOW.step1_get_authorize_url()
@@ -58,8 +55,9 @@ def home(request):
     else:
         mail_box = MiliBox.objects.get(user=request.user)
         contacts = get_contacts_for_user(request.user)
+        Contact.objects.filter(user=request.user).delete()
         for contact in contacts:
-            con=Contact.objects.create(user=request.user,name=contact.nickname,image_link=contact.GetPhotoLink())
+            con=Contact.objects.create(user=request.user,provider_id=contact.id.text.split('/')[-1],name=contact.nickname,image_link=contact.GetPhotoLink())
             for email in contact.email:
                 ContactEmail.objects.create(contact=con,email=email.address)
     return render(request, "home.html", locals())
