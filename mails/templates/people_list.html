@@ -5,6 +5,7 @@
                     <ul class="no-bullet">
                         {% for contact in contacts %}
                         <li id="person_name">
+                        <a href="{% url 'mails:compose' contact.provider_id %}">
                             <div class="row people_link selected">
                                 <div class="large-12 columns">
                                     <ul class="inline-list link_list">
@@ -38,6 +39,7 @@
                                 </div>
                                 <div class="arrow-left selected_person"></div>
                             </div>
+                        </a>
                         </li>
                         {% endfor %}
                         

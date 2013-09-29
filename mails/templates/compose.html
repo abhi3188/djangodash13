@@ -5,55 +5,67 @@
 
 {% endblock left_content %}
 
-{% block right_content %}
-    <div class="row row_wide">
-        
+{% block right_content %} 
         {% include "people_list.html" %}
-
         <div class="medium-7 large-9 columns content_pane">
-            <div class="compose_msg">
-            <div class="row row_with_padding">
-                <div class="small-9 small-centered large-6 large-centered columns">
-                    <div class="row collapse">
-                        <div class="small-3 large-2 columns">
-                            <span class="prefix">To</span>
+            <form enctype="multipart/form-data" method='post' action="" >
+            {% csrf_token %}
+                <div class="compose_msg">
+                    <div class="row row_with_padding">
+                        <div class="small-9 small-centered large-6 large-centered columns">
+                            <div class="row collapse">
+                                <div class="small-3 large-2 columns">
+                                    <span class="prefix">To</span>
+                                </div>
+                                <div class="small-9 large-10 columns">
+                                    {{form.to_message}}
+                                </div>
+                            </div>
                         </div>
-                        <div class="small-9 large-10 columns">
-                            <input type="text" placeholder="Click on person">
+                    </div>
+                    <div class="row row_with_padding">
+                        <div class="small-9 small-centered large-6 large-centered columns">
+                            <div class="row collapse">
+                                <div class="small-3 large-2 columns">
+                                    <span class="prefix">Subject</span>
+                                </div>
+                                <div class="small-9 large-10 columns">
+                                    {{form.subject}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row_with_padding">
+                        <div class="small-9 small-centered large-6 large-centered columns">
+                            <div class="row collapse">
+                                <div class="small-3 large-2 columns">
+                                    <span class="prefix">cc</span>
+                                </div>
+                                <div class="small-9 large-10 columns">
+                                    {{form.cc_myself}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row_with_padding">
+                        <div class="small-9 small-centered large-6 large-centered columns">
+                            {{form.message}}
+                        </div>
+                    </div>
+                    <div class="row row_with_padding attach_send">
+                        <div class="small-9 small-centered large-6 large-centered columns">
+                            <div class="row">
+                                <div class="medium-6 large-6 columns">
+                                    {{form.upload}}                            
+                                </div>
+                                <div class="medium-6 large-6 columns">
+                                    <input type="submit" class="button expand custom_button" value="Send"/>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row row_with_padding">
-                <div class="small-9 small-centered large-6 large-centered columns">
-                    <div class="row collapse">
-                        <div class="small-3 large-2 columns">
-                            <span class="prefix">cc</span>
-                        </div>
-                        <div class="small-9 large-10 columns">
-                            <input type="text" placeholder="Click on person">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row row_with_padding">
-                <div class="small-9 small-centered large-6 large-centered columns">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="row row_with_padding attach_send">
-                <div class="small-9 small-centered large-6 large-centered columns">
-                    <div class="row">
-                        <div class="medium-6 large-6 columns">
-                            <a href="#" class="button expand gmail_button">Attach File</a>
-                        </div>
-                        <div class="medium-6 large-6 columns">
-                            <a href="#" class="button expand custom_button">Send</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
+            </form>
         </div>
     </div>
 

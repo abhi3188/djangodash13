@@ -10,5 +10,6 @@ urlpatterns = patterns('',
     url(r"^compose/(?P<provider_id>\w+)?$", compose),
     url(r"^attachments/(?P<provider_id>\w+)?$", attachments, name="attachments"),
     url(r"^categorize/$", categorize),
+
 )
 
