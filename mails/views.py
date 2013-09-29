@@ -7,6 +7,7 @@ from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.template import RequestContext
+from django.views.decorators.csrf import csrf_exempt
 
 from oauth2client import xsrfutil
 from oauth2client.django_orm import Storage
@@ -17,11 +18,21 @@ from .models import MiliBox, Credential
 from .forms import SendMailForm
 from contacts.models import get_contacts_for_user,Contact,ContactEmail, ContactMessage
 
+
 def sign_in(request):
     return render(request, "sign_in.html", RequestContext(request))
 
 def categorize(request):
-    return render(request, "categorize.html")
+    contacts = request.user.contact_set.all()
+
+    return render(request, "categorize.html",locals())
+
+@csrf_exempt
+def categorize_type(request,id,type):
+    contact = request.user.contact_set.get(id=id)
+    contact.contact_type = type
+    contact.save()
+    return HttpResponse("Success")
 
 @login_required
 def inbox(request, provider_id):
@@ -93,11 +104,11 @@ def home(request):
     else:
         mail_box = MiliBox.objects.get(user=request.user)
         contacts = get_contacts_for_user(request.user)
-        Contact.objects.filter(user=request.user).delete()
-        for contact in contacts:
-            con=Contact.objects.create(user=request.user,provider_id=contact.id.text.split('/')[-1],name=contact.nickname,image_link=contact.GetPhotoLink())
-            for email in contact.email:
-                ContactEmail.objects.create(contact=con,email=email.address)
+        if not contacts:
+            for contact in contacts:
+                con=Contact.objects.create(user=request.user,provider_id=contact.id.text.split('/')[-1],name=contact.nickname,image_link=contact.GetPhotoLink())
+                for email in contact.email:
+                    ContactEmail.objects.create(contact=con,email=email.address)
     return render(request, "home.html", locals())
 
 @login_required

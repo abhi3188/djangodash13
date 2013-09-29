@@ -17,13 +17,18 @@
         </thead>
         
         <tbody>
+        {% for contact in contacts %}
             <tr>
-                <td width="50%">Contact Name is very very </td>
+                <td width="50%">{{contact.display_name}} </td>
                 <td>
                     <form class="custom">
                         <div class="row">
                             <div class="large-12 columns">
-                                <input name="radio1" type="radio" id="radio1" style="display:none;"><span class="custom radio checked"></span>
+                            {% if contact.contact_type == 1 %}
+                                <input name="family" type="radio" style="display:none;" checked><span id="{{contact.id}}-1" class="custom radio contact-type"></span>
+                            {% else %}
+                                <input name="family" type="radio" style="display:none;"><span id="{{contact.id}}-1" class="custom radio contact-type"></span>
+                            {% endif %}
                             </div>
                         </div>
                     </form>
@@ -32,7 +37,11 @@
                     <form class="custom">
                         <div class="row">
                             <div class="large-12 columns">
-                                <input name="radio1" type="radio" id="radio1" style="display:none;"><span class="custom radio checked"></span>
+                            {% if contact.content_type == 2 %}
+                                <input name="friend" type="radio" style="display:none;" checked><span id="{{contact.id}}-2" class="custom radio contact-type"></span>
+                            {% else %}
+                                <input name="friend" type="radio" style="display:none;"><span id="{{contact.id}}-2" class="custom radio contact-type"></span>
+                            {% endif %}
                             </div>
                         </div>
                     </form>
@@ -41,7 +50,11 @@
                     <form class="custom">
                         <div class="row">
                             <div class="large-12 columns">
-                                <input name="radio1" type="radio" id="radio1" style="display:none;"><span class="custom radio checked"></span>
+                            {% if contact.contact_type == 3 %}
+                                <input name="work" type="radio" style="display:none;" checked><span id="{{contact.id}}-3" class="custom radio contact-type"></span>
+                            {% else %}
+                                <input name="work" type="radio" style="display:none;"><span id="{{contact.id}}-3" class="custom radio contact-type"></span>
+                            {% endif %}
                             </div>
                         </div>
                     </form>
@@ -50,6 +63,7 @@
                     <form class="custom">
                         <div class="row">
                             <div class="large-12 columns">
+<<<<<<< HEAD
                                 <input name="radio1" type="radio" id="radio1" style="display:none;"><span class="custom radio checked"></span>
                             </div>
                         </div>
@@ -290,7 +304,7 @@
                     </form>
                 </td>
             </tr>
-<tr>
+            <tr>
                 <td width="50%">Contact Name is very very </td>
                 <td>
                     <form class="custom">
@@ -324,13 +338,38 @@
                         <div class="row">
                             <div class="large-12 columns">
                                 <input name="radio1" type="radio" id="radio1" style="display:none;"><span class="custom radio checked"></span>
+=======
+                            {% if contact.contact_type == 4 %}
+                                <input name="others" type="radio" style="display:none;" checked><span id="{{contact.id}}-4" class="custom radio contact-type"></span>
+                            {% else %}
+                                <input name="others" type="radio" style="display:none;"><span id="{{contact.id}}-4" class="custom radio contact-type"></span>
+                            {% endif %}
+>>>>>>> 22c320180ca39a06a49ece0408ead813aac5fb52
                             </div>
                         </div>
                     </form>
                 </td>
             </tr>
+            {% endfor %}
+            
         </tbody>
     </table>
-    <a class="large button expand custom_button">I'm done! Take me to my awesome Inbox!</a>    
+    <a class="large button expand custom_button" href="{% url 'mails:inbox' %}">I'm done! Take me to my awesome Inbox!</a>    
 </div>
 {% endblock main_content %}
+
+{% block extra_javascript %}
+<script>
+        $(document).ready(function(){
+            $('.contact-type').click(function(){
+                var id = $(this).attr("id").split("-")[0];
+                var type = $(this).attr("id").split("-")[1];
+                var url = '/mails/categorize/'+id+'/'+type+'/';
+                $.ajax({
+                    url:url,
+                    type:'POST',
+                });
+            });
+        });
+    </script>
+{% endblock extra_javascript %}
