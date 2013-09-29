@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.contrib.auth.models import User
 
 import gdata.gauth
 import gdata.contacts.client
@@ -18,3 +19,16 @@ def get_contacts_for_user(user):
     token.authorize(client)
     feed = client.GetContacts()
     return feed.entry
+
+class Contact(models.Model):
+    user = models.ForeignKey(User)
+    name = models.CharField(max_length=200,null=True,blank=True)
+    image_link = models.CharField(max_length=250,null=True,blank=True)
+
+
+class ContactEmail(models.Model):
+    contact = models.ForeignKey(Contact)
+    email = models.EmailField()
+
+    def __unicode__(self):
+        return self.email
