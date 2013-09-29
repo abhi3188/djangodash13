@@ -1,6 +1,6 @@
 <ul class="no-bullet">
         <li id="compose_mail">
-            <div class="row mail_side_nav_link active" >
+            <div class="row mail_side_nav_link {% if name_style == "compose" %}active{% endif %}" >
                 <a href="{% url 'mails:compose' %}">
                 <div class="large-12 columns">
                     <ul class="no-bullet link_list">
@@ -14,7 +14,7 @@
             </div>
         </li>
         <li id="family">
-            <div class="row mail_side_nav_link">
+            <div class="row mail_side_nav_link {% if name_style == "inbox" and inbox_tab == 1 %}active{% endif %}">
                 <a href="{% url 'mails:inbox' %}">
                     <div class="large-12 columns">
                         <ul class="no-bullet link_list">
@@ -28,7 +28,7 @@
             </div>
         </li>
         <li id="friends">
-            <div class="row mail_side_nav_link">
+            <div class="row mail_side_nav_link {% if name_style == "inbox" and inbox_tab == 2 %}active{% endif %}">
                 <a href="{% url 'mails:inbox' %}?type=friends">
                     <div class="large-12 columns">
                         <ul class="no-bullet link_list">
@@ -42,7 +42,7 @@
             </div>
         </li>
         <li id="work">
-            <div class="row mail_side_nav_link">
+            <div class="row mail_side_nav_link {% if name_style == "inbox" and inbox_tab == 3 %}active{% endif %}">
                 <a href="{% url 'mails:inbox' %}?type=work">
                     <div class="large-12 columns">
                         <ul class="no-bullet link_list">
@@ -56,7 +56,7 @@
             </div>
         </li>
         <li id="others">
-            <div class="row mail_side_nav_link">
+            <div class="row mail_side_nav_link {% if name_style == "inbox" and inbox_tab == 4 %}active{% endif %}">
                 <a href="{% url 'mails:inbox' %}?type=others">
                     <div class="large-12 columns">
                         <ul class="no-bullet link_list">
@@ -70,7 +70,7 @@
             </div>
         </li>
         <li id="attachments">
-            <div class="row mail_side_nav_link">
+            <div class="row mail_side_nav_link {% if name_style == "attachments" %}active{% endif %}">
                 <a href="{% url 'mails:attachments'%}">
                 <div class="large-12 columns">
                     <ul class="no-bullet link_list">
