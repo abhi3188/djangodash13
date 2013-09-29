@@ -21,10 +21,18 @@ def get_contacts_for_user(user):
     return feed.entry
 
 class Contact(models.Model):
+    
+    CONTACT_TYPE = (
+        (1,"family"),
+        (2, "friends"),
+        (3, "work"),
+        (4, "others"),
+    )
     user = models.ForeignKey(User)
     provider_id = models.CharField(max_length=200)
     name = models.CharField(max_length=200,null=True,blank=True)
     image_link = models.CharField(max_length=250,null=True,blank=True)
+    contact_type = models.IntegerField(choices = CONTACT_TYPE, default=4)
 
     def display_name(self):
         return self.name or self.contactemail_set.all()[0]

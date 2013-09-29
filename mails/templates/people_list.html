@@ -1,4 +1,4 @@
-<div class="row row_wide">
+
         <div class="medium-5 large-3 columns people_list">
             <div class="row">
                 <div class="medium-12 large-12 columns">
@@ -11,13 +11,24 @@
                                         <li class="pic">
                                             <div class="people_pic">
                                                 <img src="{{ STATIC_URL }}images/abhishek_singh.jpg" width="50" class="img_rounded">
-                                                <div class="people_category">
-                                                    <i class="fi-heart"></i>
-                                                </div>
-                                                {% if name_style == "attachments" or name_style == "friend}
+                                                {% if name_style == "compose" or name_style == "attachments" %}
+                                                    <div class="people_category">
+                                                        {% if contact.contact_type == 1 %}
+                                                        <i class="fi-heart"></i>
+                                                        {% elif contact.contact_type == 2 %}
+                                                        <i class="fi-star"></i>
+                                                        {% elif contact.contact_type == 3 %}
+                                                        <i class="fi-shopping-bag"></i>
+                                                        {% else %}
+                                                        <i class="fi-torsos-all"></i>
+                                                        {% endif %}
+                                                    </div>
+                                                {% endif %}
+                                                {% if name_style == "attachments" or name_style == "inbox" %}
                                                 <div class="people_pic_unread">
                                                     <p class="unread_msg_number">2</p>
                                                 </div>
+                                                {% endif %}
                                             </div>
                                         </li>
                                         <li class="link_text">
