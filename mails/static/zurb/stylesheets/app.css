@@ -8294,7 +8294,21 @@ textarea {
   line-height: 250%;
   margin: 0;
 }
-/* line 363, ../sass/custom.scss */
+/* line 360, ../sass/custom.scss */
+.main_content .people_list ul.link_list .people_pic .people_category {
+  position: absolute;
+  right: -2px;
+  bottom: -6px;
+  z-index: 50;
+}
+/* line 366, ../sass/custom.scss */
+.main_content .people_list ul.link_list .people_pic .people_category i {
+  font-size: 1.125em;
+  color: #27ad90;
+  text-shadow: 0px 0px 2px black;
+  -webkit-text-stroke: 1px white;
+}
+/* line 377, ../sass/custom.scss */
 .main_content .people_list ul.link_list .link_text h4 {
   font-size: 1em;
   white-space: nowrap;
@@ -8304,21 +8318,21 @@ textarea {
   text-overflow: ellipsis;
   line-height: 250%;
 }
-/* line 373, ../sass/custom.scss */
+/* line 387, ../sass/custom.scss */
 .main_content .content_pane {
   border-left: 1px solid #cccccc;
   font-size: 0.875em;
 }
-/* line 377, ../sass/custom.scss */
+/* line 391, ../sass/custom.scss */
 .main_content .content_pane .received_msg, .main_content .content_pane .sent_msg {
   border: 2px solid #cccccc;
 }
-/* line 380, ../sass/custom.scss */
+/* line 394, ../sass/custom.scss */
 .main_content .content_pane .received_msg .msg_text, .main_content .content_pane .sent_msg .msg_text {
   padding: 10px;
   line-height: 1.4em;
 }
-/* line 387, ../sass/custom.scss */
+/* line 401, ../sass/custom.scss */
 .main_content .content_pane .received_msg .action_btns div, .main_content .content_pane .sent_msg .action_btns div {
   border-top: 1px solid #cccccc;
   border-right: 1px solid #cccccc;
@@ -8327,24 +8341,24 @@ textarea {
   padding-bottom: 3px;
   cursor: pointer;
 }
-/* line 394, ../sass/custom.scss */
+/* line 408, ../sass/custom.scss */
 .main_content .content_pane .received_msg .action_btns div i, .main_content .content_pane .sent_msg .action_btns div i {
   font-size: 1em;
   color: #27ad90;
 }
-/* line 399, ../sass/custom.scss */
+/* line 413, ../sass/custom.scss */
 .main_content .content_pane .received_msg .action_btns div:last-child, .main_content .content_pane .sent_msg .action_btns div:last-child {
   border-right: none;
 }
-/* line 403, ../sass/custom.scss */
+/* line 417, ../sass/custom.scss */
 .main_content .content_pane .received_msg .action_btns div:hover, .main_content .content_pane .sent_msg .action_btns div:hover {
   background: whitesmoke;
 }
-/* line 405, ../sass/custom.scss */
+/* line 419, ../sass/custom.scss */
 .main_content .content_pane .received_msg .action_btns div:hover i, .main_content .content_pane .sent_msg .action_btns div:hover i {
   color: #d54937;
 }
-/* line 413, ../sass/custom.scss */
+/* line 427, ../sass/custom.scss */
 .main_content .content_pane .received_msg {
   border: 2px solid #27ad90;
 }
