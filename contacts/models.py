@@ -26,6 +26,9 @@ class Contact(models.Model):
     name = models.CharField(max_length=200,null=True,blank=True)
     image_link = models.CharField(max_length=250,null=True,blank=True)
 
+    def display_name(self):
+        return self.name or self.contactemail_set.all()[0]
+
 
 class ContactEmail(models.Model):
     contact = models.ForeignKey(Contact)
@@ -33,3 +36,5 @@ class ContactEmail(models.Model):
 
     def __unicode__(self):
         return self.email
+
+
