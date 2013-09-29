@@ -8247,33 +8247,35 @@ textarea {
   margin-top: auto;
   margin-bottom: auto;
 }
-/* line 310, ../sass/custom.scss */
+/* line 312, ../sass/custom.scss */
 .main_content .people_list .people_link:hover {
   background: whitesmoke;
+  cursor: pointer;
 }
-/* line 316, ../sass/custom.scss */
+/* line 319, ../sass/custom.scss */
 .main_content .people_list .people_link.selected:hover {
   background: white;
+  cursor: default;
 }
-/* line 322, ../sass/custom.scss */
+/* line 326, ../sass/custom.scss */
 .main_content .people_list ul.link_list {
   margin-bottom: 0;
   padding: 22px 0px 0px 10px;
 }
-/* line 326, ../sass/custom.scss */
+/* line 330, ../sass/custom.scss */
 .main_content .people_list ul.link_list .people_pic {
   position: relative;
 }
-/* line 328, ../sass/custom.scss */
+/* line 332, ../sass/custom.scss */
 .main_content .people_list ul.link_list .people_pic img {
   width: 50;
 }
-/* line 332, ../sass/custom.scss */
+/* line 336, ../sass/custom.scss */
 .main_content .people_list ul.link_list .people_pic .img_rounded {
   border-radius: 50%;
   border: 3px solid #cccccc;
 }
-/* line 337, ../sass/custom.scss */
+/* line 341, ../sass/custom.scss */
 .main_content .people_list ul.link_list .people_pic .people_pic_unread {
   position: absolute;
   top: 0;
@@ -8287,12 +8289,12 @@ textarea {
   border-radius: 50%;
   border: 3px solid #27ad90;
 }
-/* line 350, ../sass/custom.scss */
+/* line 354, ../sass/custom.scss */
 .main_content .people_list ul.link_list .people_pic .people_pic_unread .unread_msg_number {
   line-height: 250%;
   margin: 0;
 }
-/* line 359, ../sass/custom.scss */
+/* line 363, ../sass/custom.scss */
 .main_content .people_list ul.link_list .link_text h4 {
   font-size: 1em;
   white-space: nowrap;
@@ -8302,21 +8304,21 @@ textarea {
   text-overflow: ellipsis;
   line-height: 250%;
 }
-/* line 369, ../sass/custom.scss */
+/* line 373, ../sass/custom.scss */
 .main_content .content_pane {
   border-left: 1px solid #cccccc;
   font-size: 0.875em;
 }
-/* line 373, ../sass/custom.scss */
+/* line 377, ../sass/custom.scss */
 .main_content .content_pane .received_msg, .main_content .content_pane .sent_msg {
   border: 2px solid #cccccc;
 }
-/* line 376, ../sass/custom.scss */
+/* line 380, ../sass/custom.scss */
 .main_content .content_pane .received_msg .msg_text, .main_content .content_pane .sent_msg .msg_text {
   padding: 10px;
   line-height: 1.4em;
 }
-/* line 383, ../sass/custom.scss */
+/* line 387, ../sass/custom.scss */
 .main_content .content_pane .received_msg .action_btns div, .main_content .content_pane .sent_msg .action_btns div {
   border-top: 1px solid #cccccc;
   border-right: 1px solid #cccccc;
@@ -8325,24 +8327,24 @@ textarea {
   padding-bottom: 3px;
   cursor: pointer;
 }
-/* line 390, ../sass/custom.scss */
+/* line 394, ../sass/custom.scss */
 .main_content .content_pane .received_msg .action_btns div i, .main_content .content_pane .sent_msg .action_btns div i {
   font-size: 1em;
   color: #27ad90;
 }
-/* line 395, ../sass/custom.scss */
+/* line 399, ../sass/custom.scss */
 .main_content .content_pane .received_msg .action_btns div:last-child, .main_content .content_pane .sent_msg .action_btns div:last-child {
   border-right: none;
 }
-/* line 399, ../sass/custom.scss */
+/* line 403, ../sass/custom.scss */
 .main_content .content_pane .received_msg .action_btns div:hover, .main_content .content_pane .sent_msg .action_btns div:hover {
   background: whitesmoke;
 }
-/* line 401, ../sass/custom.scss */
+/* line 405, ../sass/custom.scss */
 .main_content .content_pane .received_msg .action_btns div:hover i, .main_content .content_pane .sent_msg .action_btns div:hover i {
   color: #d54937;
 }
-/* line 409, ../sass/custom.scss */
+/* line 413, ../sass/custom.scss */
 .main_content .content_pane .received_msg {
   border: 2px solid #27ad90;
 }

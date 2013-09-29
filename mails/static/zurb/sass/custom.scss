@@ -305,16 +305,20 @@ textarea {
                 top: 33%;
                 margin-top: auto;
                 margin-bottom: auto;
+                
+                
             }
             
             &:hover{
                 background: $light_gray_f;
+                cursor: pointer;
             }
         }
         
         .people_link.selected{
             &:hover{
                 background: $white;
+                cursor: default;
             }
         }
         
