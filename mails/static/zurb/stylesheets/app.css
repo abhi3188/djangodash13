@@ -8299,7 +8299,7 @@ textarea {
   position: absolute;
   right: -2px;
   bottom: -6px;
-  z-index: 50;
+  z-index: 70;
 }
 /* line 366, ../sass/custom.scss */
 .main_content .people_list ul.link_list .people_pic .people_category i {
@@ -8467,4 +8467,13 @@ textarea {
 .th.thumbnail_custom:hover {
   box-shadow: none;
   border-color: #999999;
+}
+
+/* line 534, ../sass/custom.scss */
+.th.thumbnail_custom.unseen {
+  border: 2px solid #27ad90;
+}
+/* line 537, ../sass/custom.scss */
+.th.thumbnail_custom.unseen:hover {
+  border: 2px solid #1e836d;
 }

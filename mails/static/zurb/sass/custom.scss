@@ -361,7 +361,7 @@ textarea {
                     position: absolute;
                     right:-2px;
                     bottom:-6px;
-                    z-index:50;
+                    z-index:70;
                     
                     i{
                         font-size: emCalc(18);
@@ -529,4 +529,12 @@ display: inherit;
     box-shadow: none;
     border-color: $light_gray_9;
   }
+}
+
+.th.thumbnail_custom.unseen {
+    border: 2px solid $mily_green;
+    
+    &:hover {
+        border: 2px solid darken($mily_green, 10%);
+    }
 }
