@@ -1,10 +1,17 @@
 {% extends "base_app.html" %}
-
+{% load socialaccount %}
 {% block main_content %}
 
 <div class="large-4 large-centered columns text-center landing_page">
     <img src="{{ STATIC_URL }}images/mily_logo.png" alt="Mily Mail- Email for People">
         <br><br><br><br>
-    <a class="large button expand gmail_button round">Sign-in with Gmail</a>    
-</div>
+
+
+
+{% for provider in socialaccount.providers %}
+    {% if provider.id == 'google' %}
+    <a class="large button expand gmail_button round" href="{% provider_login_url provider.id process=process %}">Sign-in with Gmail</a>
+    {% endif %}
+{% endfor %}
+    </div>
 {% endblock main_content %}
