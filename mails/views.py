@@ -21,6 +21,7 @@ def sign_in(request):
 
 @login_required
 def inbox(request, provider_id):
+    name_style="inbox"
     contacts = request.user.contact_set.all()
     if provider_id:
         selected = contacts.get(provider_id=provider_id)
@@ -29,6 +30,7 @@ def inbox(request, provider_id):
 
 @login_required
 def compose(request, provider_id):
+    name_style="compose"
     contacts = request.user.contact_set
     if provider_id:
         selected = contacts.get(provider_id=provider_id)
@@ -36,7 +38,8 @@ def compose(request, provider_id):
     return render(request, "compose.html", locals())
 
 def attachments(request, provider_id):
-    return render(request, "attachments.html")
+    name_style="attachments"
+    return render(request, "attachments.html", locals())
 
 def index(request):
     if request.method == 'POST':

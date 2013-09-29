@@ -1,0 +1,82 @@
+<div class="row row_wide">
+        <div class="medium-5 large-3 columns people_list">
+            <div class="row">
+                <div class="medium-12 large-12 columns">
+                    <ul class="no-bullet">
+                        {% for contact in contacts %}
+                        <li id="person_name">
+                            <div class="row people_link selected">
+                                <div class="large-12 columns">
+                                    <ul class="inline-list link_list">
+                                        <li class="pic">
+                                            <div class="people_pic">
+                                                <img src="{{ STATIC_URL }}images/abhishek_singh.jpg" width="50" class="img_rounded">
+                                                <div class="people_category">
+                                                    <i class="fi-heart"></i>
+                                                </div>
+                                                {% if name_style == "attachments" or name_style == "friend}
+                                                <div class="people_pic_unread">
+                                                    <p class="unread_msg_number">2</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="link_text">
+                                            {{ contact.display_name }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="arrow-left selected_person"></div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                        
+                        <li id="person_name">
+                            <div class="row people_link">
+                                <div class="large-12 columns">
+                                    <ul class="inline-list link_list">
+                                        <li class="pic">
+                                            <div class="people_pic">
+                                                <img src="{{ STATIC_URL }}images/abhishek_singh.jpg" width="50" class="img_rounded">
+                                                <div class="people_category">
+                                                    <i class="fi-star"></i>
+                                                </div>
+                                                <div class="people_pic_unread">
+                                                    <p class="unread_msg_number">2</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="link_text">
+                                            Pavan Mishra
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="person_name">
+                            <div class="row people_link">
+                                <div class="large-12 columns">
+                                    <ul class="inline-list link_list">
+                                        <li class="pic">
+                                            <div class="people_pic">
+                                                <img src="{{ STATIC_URL }}images/abhishek_singh.jpg" width="50" class="img_rounded">
+                                                <div class="people_category">
+                                                    <i class="fi-shopping-bag"></i>
+                                                </div>
+                                                <div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="link_text">
+                                            Manish Kansara
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
