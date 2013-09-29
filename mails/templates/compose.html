@@ -11,6 +11,7 @@
             <div class="row">
                 <div class="medium-12 large-12 columns">
                     <ul class="no-bullet">
+                        {% for contact in contacts %}
                         <li id="person_name">
                             <div class="row people_link selected">
                                 <div class="large-12 columns">
@@ -24,13 +25,14 @@
                                             </div>
                                         </li>
                                         <li class="link_text">
-                                            <h4>Abhishek Singh</h4>
+                                            <h4>{{ contact.display_name }}</h4>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="arrow-left selected_person"></div>
                             </div>
                         </li>
+                        {% endfor %}
                         <li id="person_name">
                             <div class="row people_link">
                                 <div class="large-12 columns">
@@ -69,13 +71,13 @@
                                 </div>
                             </div>
                         </li>
-                        
-                        
+
+
                     </ul>
                 </div>
             </div>
         </div>
-        
+
         <div class="medium-7 large-9 columns content_pane">
             <div class="compose_msg">
             <div class="row row_with_padding">
@@ -120,7 +122,7 @@
                 </div>
             </div>
             </div>
-        </div>     
+        </div>
     </div>
 
 {% endblock right_content %}
